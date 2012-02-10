@@ -2,7 +2,7 @@
 
 # Add new inflection rules using the following format
 # (all these examples are active by default):
-# ActiveSupport::Inflector.inflections do |inflect|
+ActiveSupport::Inflector.inflections do |inflect|
 #   inflect.plural /^(ox)$/i, '\1en'
 #   inflect.singular /^(ox)en/i, '\1'
 #   inflect.irregular 'person', 'people'
@@ -12,4 +12,8 @@
 # These inflection rules are supported but not enabled by default:
 # ActiveSupport::Inflector.inflections do |inflect|
 #   inflect.acronym 'RESTful'
-# end
+
+  inflect.irregular 'lugar', 'lugares'
+  inflect.irregular 'artista', 'artistas'
+
+end
