@@ -3,13 +3,11 @@ class LugaresController < ApplicationController
   # GET /lugares.json
   def index
     @lugares = Lugar.all
-  @lugar = Lugar.new
   
-    render 'new'
-    # respond_to do |format|
-      # format.html # index.html.erb
-      # format.json { render json: @lugares }
-    # end
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @lugares }
+    end
   end
 
   # GET /lugares/1
