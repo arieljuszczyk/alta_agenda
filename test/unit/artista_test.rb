@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class LugarTest < ActiveSupport::TestCase
+class ArtistaTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
