@@ -1,15 +1,11 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
-gem 'pg'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-group :development do
-  gem 'sqlite3'
-  gem 'annotate', '~> 2.4.1.beta'
-end
+gem 'sqlite3'
 
 
 # Gems used only for assets and not required
