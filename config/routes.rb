@@ -1,5 +1,7 @@
 AltaAgenda::Application.routes.draw do
   
+  resources :usuarios
+
   resources :eventos
 
   resources :artistas
