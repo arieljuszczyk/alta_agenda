@@ -12,6 +12,39 @@
 #  created_at       :datetime        not null
 #  updated_at       :datetime        not null
 #
+require 'digest'
 
 class Usuario < ActiveRecord::Base
+  attr_accessor :clave
+  attr_accessible :apellido, :nombre, :login, :email, :clave, :clave_confirmation
+  
+  validates :clave, :presence => true,
+                    :confirmation => true,
+                    :length => { :within => 6..40 }
+  
+  before_save :encriptar_clave
+  
+  def tiene_clave?(clave_enviada)
+    clave_encriptada == encriptar(clave_enviada)
+  end
+  
+  private
+  
+    def encriptar_clave
+      self.salt = make_salt unless tiene_clave?(clave)
+      self.clave_encriptada = encriptar(clave)
+    end
+    
+    def encriptar(string)
+      secure_hash("#{salt}--#{string}")
+    end
+  
+    def make_salt
+      secure_hash("#{Time.now.utc}--#{clave}")
+    end
+  
+    def secure_hash(string)
+      Digest::SHA2.hexdigest(string)
+    end
+    
 end

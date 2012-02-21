@@ -2,3 +2,19 @@ es:
   titulo:
     lugares: Listado de lugares
   direccion: Dirección
+
+  apellido: apellido
+  nombre: nombre
+  login: login
+  email: e-mail
+  clave: clave
+  clave_confirmation: confirmación
+  
+  activerecord:
+    errors:
+      models:
+        usuario:
+          attributes:
+            clave:
+              confirmation: La confirmación de la clave es errónea
+              too_short: La longitud de la clave debe estar entre 6 y 40 caracteres

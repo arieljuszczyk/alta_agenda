@@ -12,28 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :apellido %><br />
+    <%= f.label t(:apellido) %><br />
     <%= f.text_field :apellido %>
   </div>
   <div class="field">
-    <%= f.label :nombre %><br />
+    <%= f.label t(:nombre) %><br />
     <%= f.text_field :nombre %>
   </div>
   <div class="field">
-    <%= f.label :login %><br />
+    <%= f.label t(:login) %><br />
     <%= f.text_field :login %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label t(:email) %><br />
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :clave_encriptada %><br />
-    <%= f.text_field :clave_encriptada %>
+    <%= f.label t(:clave) %><br />
+    <%= f.password_field :clave %>
   </div>
   <div class="field">
-    <%= f.label :salt %><br />
-    <%= f.text_field :salt %>
+    <%= f.label t(:clave_confirmation) %><br />
+    <%= f.password_field :clave_confirmation %>
   </div>
   <div class="actions">
     <%= f.submit %>
