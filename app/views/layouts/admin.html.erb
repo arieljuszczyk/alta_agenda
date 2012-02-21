@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+	
+	<head>
+  		<title><%= titulo %></title>
+		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+	</head>
+	
+	<body>
+
+    <div id="main">
+		<%= render 'layouts/admin_header' %>
+    	
+        <div id="middle"><div id="middle2">
+                <div id="left">
+                    <div class="box">
+                    	<%= yield %>
+                    </div>
+                    <!--
+                    <div class="box">
+                        <h2>Lorem ipsum dolor sit amet</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nulla hendrerit lacus at metus. Maecenas venenatis rhoncus nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Proin lobortis nisi nec nisi. Morbi mattis fermentum lectus. Nam vestibulum arcu vulputate ante. Maecenas rutrum dui nec quam.</p>
+                        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean rutrum tortor a purus. Quisque convallis nisl ac augue. Nulla aliquam dui. Etiam convallis enim tincidunt erat dapibus tincidunt.</p>
+                    </div>
+                    <div class="box">
+                        <h2>Nulla quis metus nisi</h2>
+                        <p>Vivamus a massa orci, ut condimentum turpis. Nulla quis metus nisi, eget adipiscing orci. 
+                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut ac 
+                        elit nec purus malesuada dignissim a ac sapien. Curabitur lacinia semper libero, ut placerat mi 
+                        scelerisque ut. Aliquam in volutpat mi. Curabitur varius velit eget tortor molestie elementum.</p>
+                        <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer non enim nec tellus lobortis tempus vel nec lorem. Vestibulum ullamcorper accumsan ante et tristique. Donec mattis, mi ut consectetur rhoncus, mi sem interdum libero, gravida consequat quam mi non quam. 
+                        Vivamus in lacus ut sem convallis imperdiet et non nunc.</p>
+                    </div>
+                    -->
+                </div>
+                <!--
+                <div id="sidebar">
+                    <p><a href="#">Duis et sem quis</a> dui ultricies sagittis. Morbi ut diam sit amet lacus consequat convallis. Integer feugiat mattis purus, et ultrices urna laoreet ut. Sed sit amet quam sem, eu tincidunt augue.</p>
+                    <p><a href="#">Class aptent taciti</a> sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam euismod enim sed velit adipiscing a odales massa auctor. Nullam vestibulum commodo feugiat.</p>
+                    <p><a href="#">Proin eu urna turpis</a>, iaculis condimentum neque. Quisque vel ipsum turpis, et commodo nisl. Morbi tristique mi vitae lectus porta laoreet. Donec rhoncus bibendum placerat.</p>
+                    <p><a href="#">Nulla non enim felis</a>. Cras non nulla lacus, vel luctus velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam euismod enim sed velit adipiscing a sodales massa auctor.</p>
+                    <p><a href="#">Nulla quis metus nisi</a>, eget adipiscing orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut ac elit nec purus malesuada dignissim a ac sapien. Curabitur lacinia semper libero, ut placerat mi scelerisque ut.</p>
+                </div>
+                -->
+                <div class="clearing"> </div>
+        </div></div>
+
+		<%= render 'layouts/admin_footer' %>
+	
+    </div>
+
+</body>
+</html>

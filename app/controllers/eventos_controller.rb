@@ -1,4 +1,4 @@
-class EventosController < ApplicationController
+class EventosController < AdminController
   # GET /eventos
   # GET /eventos.json
   def index

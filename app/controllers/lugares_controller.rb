@@ -1,7 +1,8 @@
-class LugaresController < ApplicationController
+class LugaresController < AdminController
   # GET /lugares
   # GET /lugares.json
   def index
+    @titulo = 'Listado de lugares'
     @lugares = Lugar.all
 
     respond_to do |format|

@@ -1,4 +1,4 @@
-class ArtistasController < ApplicationController
+class ArtistasController < AdminController
   # GET /artistas
   # GET /artistas.json
   def index
