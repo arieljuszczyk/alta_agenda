@@ -11,9 +11,9 @@
   <tr>
     <td><%= artista.nombre %></td>
     <td><%= artista.url %></td>
-    <td><%= link_to 'Show', artista %></td>
-    <td><%= link_to 'Edit', edit_artista_path(artista) %></td>
-    <td><%= link_to 'Destroy', artista, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to t('ver'), artista %></td>
+    <td><%= link_to t('editar'), edit_artista_path(artista) %></td>
+    <td><%= link_to t('borrar'), artista, confirm: t('confirmacion_borrado'), method: :delete %></td>
   </tr>
 <% end %>
 </table>

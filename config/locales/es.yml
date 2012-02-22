@@ -3,23 +3,31 @@ es:
     lugares: Listado de lugares
     artistas: Listado de artistas
     usuarios: Listado de usuarios
+    eventos: Listado de eventos
 
   # Etiquetas genéricas
   apellido: apellido
+  artista: artista
+  borrar: borrar
   clave: password
   clave_confirmation: confirmación
   datos_usuario: Datos del usuario
   direccion: Dirección
+  edicion: edición
+  editar: editar
   email: e-mail
   grabar: grabar
   login: login
+  lugar: lugar
   nombre: nombre
   nuevo_artista: Nuevo artista
+  nuevo_evento: Nuevo evento
   url: URL
   ver: ver
   volver: volver  
   
   # Mensajes
+  confirmacion_borrado: ¿Está seguro?
   login_invalido: e-mail o contraseña inválidos
   
   activerecord:

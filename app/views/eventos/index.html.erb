@@ -1,12 +1,10 @@
-<h1>Listing eventos</h1>
+<h2><%= t 'titulo.eventos' %></h2>
 
 <table>
   <tr>
-    <th>Artista</th>
-    <th>Lugar</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th><%= t 'artista' %></th>
+    <th><%= t 'lugar' %></th>
+    <th colspan="3"></th>
   </tr>
 
 <% @eventos.each do |evento| %>
@@ -22,4 +20,4 @@
 
 <br />
 
-<%= link_to 'New Evento', new_evento_path %>
+<%= link_to t('nuevo_evento'), new_evento_path, :class => 'agregar' %>
