@@ -12,15 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :artista %><br />
+    <%= f.label :artista %>
     <%= collection_select(:evento, :artista_id, Artista.all, :id, :nombre, :prompt => true )%>
-    
   </div>
   <div class="field">
-    <%= f.label :lugar %><br />
+    <%= f.label :lugar %>
     <%= collection_select(:evento, :lugar_id, Lugar.all, :id, :nombre, :prompt => true )%>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :value => t('grabar'), :class => 'inputButton' %>
   </div>
 <% end %>

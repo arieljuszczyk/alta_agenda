@@ -11,9 +11,9 @@
   <tr>
     <td><%= evento.artista.nombre %></td>
     <td><%= evento.lugar.nombre %></td>
-    <td><%= link_to 'Show', evento %></td>
-    <td><%= link_to 'Edit', edit_evento_path(evento) %></td>
-    <td><%= link_to 'Destroy', evento, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to t('ver'), evento %></td>
+    <td><%= link_to t('editar'), edit_evento_path(evento) %></td>
+    <td><%= link_to t('borrar'), evento, confirm: t('confirmacion_borrado'), method: :delete %></td>
   </tr>
 <% end %>
 </table>

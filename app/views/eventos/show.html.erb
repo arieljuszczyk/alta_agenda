@@ -1,15 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Artista:</b>
+  <b><%= t 'artista' %>:</b>
   <%= @evento.artista.nombre %>
 </p>
 
 <p>
-  <b>Lugar:</b>
+  <b><%= t 'lugar' %>:</b>
   <%= @evento.lugar.nombre %>
 </p>
 
 
-<%= link_to 'Edit', edit_evento_path(@evento) %> |
-<%= link_to 'Back', eventos_path %>
+<%= link_to t('editar'), edit_evento_path(@evento) %> |
+<%= link_to t('volver'), eventos_path %>
