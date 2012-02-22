@@ -77,6 +77,7 @@ label
 {
   display: block;
   margin: 0 0 6px 0;
+  text-transform: capitalize;
 }
 
 p {
@@ -91,7 +92,17 @@ ul h4 {
   margin-bottom: 0.35em;
 }
 
-.form {
+.form input[type=text], .form input[type=password]
+{
+  width: 80%;
+}
+.form input[type=button]
+{
+  margin-right: 25px;
+}
+
+.form 
+{
   margin: 0 0 24px 0;
 }
 

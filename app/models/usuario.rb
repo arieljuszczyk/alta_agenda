@@ -28,6 +28,12 @@ class Usuario < ActiveRecord::Base
     clave_encriptada == encriptar(clave_enviada)
   end
   
+  def self.autenticar(email, submitted_password)
+    usuario = find_by_email(email)
+    return nil  if usuario.nil?
+    return usuario if usuario.tiene_clave?(submitted_password)
+  end
+    
   private
   
     def encriptar_clave

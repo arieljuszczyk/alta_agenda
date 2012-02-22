@@ -10,8 +10,10 @@ es:
   nombre: nombre
   login: login
   email: e-mail
-  clave: clave
+  clave: password
   clave_confirmation: confirmación
+  
+  login_invalido: e-mail o contraseña inválidos
   
   activerecord:
     errors:

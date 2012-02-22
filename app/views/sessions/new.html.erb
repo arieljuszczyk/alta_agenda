@@ -1,0 +1,15 @@
+<h3><%= t 'login_acceso' %></h3>
+
+<%= form_for(:session, url: sessions_path) do |f| %>
+  <div class="field">  	
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div class="actions">
+    <%= f.submit t('login'), :class => 'inputButton' %>
+  </div>
+<% end %>

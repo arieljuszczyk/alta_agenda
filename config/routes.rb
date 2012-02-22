@@ -1,5 +1,7 @@
 AltaAgenda::Application.routes.draw do
   
+  resources :sessions, only: [:new, :create, :destroy]
+  
   resources :usuarios
 
   resources :eventos
@@ -9,7 +11,10 @@ AltaAgenda::Application.routes.draw do
   resources :lugares
 
   root :to => 'lugares#index'
-  
+
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy'
+    
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
