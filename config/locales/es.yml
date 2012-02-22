@@ -1,18 +1,25 @@
 es:
   titulo:
     lugares: Listado de lugares
-  direccion: Dirección
+    artistas: Listado de artistas
+    usuarios: Listado de usuarios
 
-  grabar: grabar
-  ver: ver
-  volver: volver
+  # Etiquetas genéricas
   apellido: apellido
-  nombre: nombre
-  login: login
-  email: e-mail
   clave: password
   clave_confirmation: confirmación
+  datos_usuario: Datos del usuario
+  direccion: Dirección
+  email: e-mail
+  grabar: grabar
+  login: login
+  nombre: nombre
+  nuevo_artista: Nuevo artista
+  url: URL
+  ver: ver
+  volver: volver  
   
+  # Mensajes
   login_invalido: e-mail o contraseña inválidos
   
   activerecord:

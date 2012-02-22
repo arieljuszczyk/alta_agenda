@@ -1,12 +1,10 @@
-<h1>Listing artistas</h1>
+<h2><%= t 'titulo.artistas' %></h2>
 
 <table>
   <tr>
-    <th>Nombre</th>
-    <th>Url</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th><%= t 'nombre' %></th>
+    <th><%= t 'url' %></th>
+    <th colspan="3"></th>
   </tr>
 
 <% @artistas.each do |artista| %>
@@ -22,4 +20,4 @@
 
 <br />
 
-<%= link_to 'New Artista', new_artista_path %>
+<%= link_to t('nuevo_artista'), new_artista_path, :class => 'agregar' %>

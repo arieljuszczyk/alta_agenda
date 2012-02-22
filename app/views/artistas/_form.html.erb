@@ -12,14 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :nombre %><br />
+    <%= f.label :nombre %>
     <%= f.text_field :nombre %>
   </div>
   <div class="field">
-    <%= f.label :url %><br />
+    <%= f.label :url %>
     <%= f.text_field :url %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :value => t('grabar'), :class => 'inputButton' %>
   </div>
 <% end %>
