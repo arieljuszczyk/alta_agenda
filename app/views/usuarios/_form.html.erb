@@ -11,31 +11,38 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label t(:apellido) %><br />
-    <%= f.text_field :apellido %>
-  </div>
-  <div class="field">
-    <%= f.label t(:nombre) %><br />
-    <%= f.text_field :nombre %>
-  </div>
-  <div class="field">
-    <%= f.label t(:login) %><br />
-    <%= f.text_field :login %>
-  </div>
-  <div class="field">
-    <%= f.label t(:email) %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label t(:clave) %><br />
-    <%= f.password_field :clave %>
-  </div>
-  <div class="field">
-    <%= f.label t(:clave_confirmation) %><br />
-    <%= f.password_field :clave_confirmation %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<div class="left" style="width: 100%">
+		<div class="left">
+			<div class="field">
+				<%= f.label t(:apellido), :class => 'login' %>
+				<%= f.text_field :apellido, :class => 'inputBox' %>
+			</div>
+			<div class="field">
+				<%= f.label t(:nombre) %>
+				<%= f.text_field :nombre %>
+			</div>
+			<div class="field">
+				<%= f.label t(:login) %>
+				<%= f.text_field :login %>
+			</div>
+		</div>
+		<div class="left">
+	  		<div class="field">
+				<%= f.label t(:email) %>
+				<%= f.text_field :email %>
+	  		</div>
+	  		<div class="field">
+				<%= f.label t(:clave) %>
+				<%= f.password_field :clave %>
+	  		</div>
+	  		<div class="field">
+				<%= f.label t(:clave_confirmation) %>
+				<%= f.password_field :clave_confirmation %>
+	  		</div>
+  		</div>
+  	</div>
+
+  	<div class="actions">
+    	<%= f.submit :value => t('grabar'), :class => 'inputButton' %>
+  	</div>
 <% end %>

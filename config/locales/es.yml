@@ -3,6 +3,9 @@ es:
     lugares: Listado de lugares
   direccion: Dirección
 
+  grabar: grabar
+  ver: ver
+  volver: volver
   apellido: apellido
   nombre: nombre
   login: login

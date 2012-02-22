@@ -1,19 +1,17 @@
 
-    <div id="header">
-        <h1>Alta Agenda</h1>
-        <div id="search">
-            <form method="get" action="#" accept-charset="utf-8">
-                <input type="text" class="text"><input type="submit" class="submit" value="Search"></form>
-        </div>
-    </div>
-    
-    <div id="menu">
-    	<div id="menu2">
-            <ul>
+	<div id="header">
+		<div id="logo">
+			<h1><a href="<%= root_path %>"><span>alta_</span>agenda</a></h1>
+		</div>
+		<div id="nav">
+			<ul>
             	<%= item_menu 'usuarios', usuarios_path %>
             	<%= item_menu 'lugares', lugares_path %>
             	<%= item_menu 'eventos', eventos_path %>
             	<%= item_menu 'artistas', artistas_path %>
-            </ul>
-        </div>
-    </div>
+			</ul>
+			<br class="clear" />
+		</div>
+	</div>
+
+

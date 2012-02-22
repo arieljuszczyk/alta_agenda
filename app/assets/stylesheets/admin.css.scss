@@ -1,206 +1,356 @@
 // Place all the styles related to the admin controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/*
+  Website Name by Adonis Ronquillo for Free Website Templates
+  www.freewebsitetemplat.es / www.doni.us
+  Released under the Creative Commons Attribution 3.0 License.
+*/
+
 * {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    padding-bottom: 30px;
-    font: 13px/20px Arial, Helvetica, sans-serif;
-    text-align: center;
-    color: #FDE0B8;
-    background: #564937;
-}
-
-h1 {
-    width: 560px;
-    font-weight: normal;
-    font-size: 36px;
-    line-height: 60px;
-    text-transform: uppercase;
-    color: White;
-}
-
-h1 a, h1 a:hover {
-    font-weight: normal;
-    text-decoration: none;
-    color: White;
-}
-
-p {
-    padding: 8px 0;
-    text-align: justify;
+  margin: 0;
+  padding: 0;
 }
 
 a {
-    font-weight: bold;
-    text-decoration: none;
-    color: #5891A7;
+  text-decoration: underline;
+  color: #718424;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: none;
 }
 
-#main {
-    position: relative;
-    margin: 0 auto;
-    width: 900px;
-    text-align: left;
-    background: asset-url("main.gif", image) repeat-y right;
+body {
+  font-size: 12.5pt;
+  line-height: 1.75em;
+  background: #f1f0f3 asset-url('bg.jpg', image) no-repeat top center fixed;
+  color: #353535;
 }
 
-#header {
-    padding-left: 40px;
-    height: 60px;
+body,input {
+  font-family: Arial, sans-serif;
 }
 
-#search {
-    position: absolute;
-    top: 15px;
-    right: 30px;
-    width: 250px;
-    height: 30px;
+br.clear {
+  clear: both;
 }
 
-#search form {
+form {
+  margin: 0;
+  padding: 0;
 }
 
-#search input.text {
-    float: left;
-    display: block;
-    padding: 3px;
-    width: 160px;
-    font-size: 13px;
-    color: #3C3429;
-    background: #E9D8C9;
-    border: 1px solid #F9F5F2;
+h1,h2,h3,h4 {
+  text-transform: lowercase;
+  font-weight: normal;
 }
 
-#search input.submit {
-    float: right;
-    display: block;
-    padding: 4px 0;
-    width: 70px;
-    font-size: 11px;
-    text-transform: uppercase;
-    color: White;
-    background: #554836;
-    border: 1px solid #7C6244;
+h2 {
+  font-size: 1.75em;
 }
 
-#menu {
-    padding-left: 600px;
-    height: 200px;
-    background: asset-url("image.jpg", image) no-repeat;
+h2,h3,h4 {
+  margin-bottom: 1em;
+  font-family: "Patua One", serif;
+  color: #000;
 }
 
-#menu2 {
-    padding: 0 30px 0 20px;
-    height: 450px;
-    background: asset-url("menu.jpg", image) no-repeat bottom left;
+h3 {
+  font-size: 1.5em;
 }
 
-#menu ul {
-    position: absolute;
-    top: 148px;
-    left: 620px;
-    list-style: none;
-    border-top: 1px solid #343434;
+h4 {
+  font-size: 1.25em;
 }
 
-#menu ul li {
-    width: 250px;
+img.left {
+  float: left;
+  margin: 8px 20px 20px 0;
 }
 
-#menu ul li a {
-    display: block;
-    height: 40px;
-    padding-left: 20px;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 40px;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #E2C092;
-    border-bottom: 1px solid #343434;
+img.top {
+  margin: 8px 0 20px 0;
 }
 
-#menu ul li a:hover, #menu ul li a.active {
-    text-decoration: none;
-    color: White;
-    background: #A3371A;
+label 
+{
+  display: block;
+  margin: 0 0 6px 0;
 }
 
-#middle {
-    background: asset-url("middle.gif", image) repeat-y;
+p {
+  margin-bottom: 1.5em;
 }
 
-#middle2 {
-    height: 1%;
-    background: asset-url("middle.jpg", image) no-repeat bottom right;
-    min-height: 400px;
+ul {
+  margin-bottom: 1.5em;
 }
 
-#left {
-    float: left;
-    padding: 0 40px 20px 40px;
-    width: 520px;
-    background: asset-url('left.jpg', image) no-repeat top right;
+ul h4 {
+  margin-bottom: 0.35em;
 }
 
-#left h2 {
-    padding-top: 10px;
-    font-weight: normal;
-    font-size: 26px;
-    line-height: 70px;
-    color: #E0BE91;
+.form {
+  margin: 0 0 24px 0;
 }
 
-#left .box {
-    padding-bottom: 25px;
+input[type=text], input[type=password]
+{
+  padding: 6px;
+  border: dotted 1px #9e9ea0;
 }
 
-#sidebar {
-    padding: 0 50px 20px 40px;
-    float: right;
-    width: 210px;
-    background: asset-url('sidebar.jpg', image) no-repeat;
+.inputButton {
+  padding: 6px;
+  
 }
 
-#sidebar p {
-    padding: 0 0 50px 0;
-    line-height: 18px;
-    text-align: left;
+#box1 {
+  width: 812px;
+  overflow: hidden;
+  margin: 0 0 20px 0;
 }
 
-#sidebar p a {
-    color: #FF461C;
+#box2 {
+  width: 396px;
+  overflow: hidden;
+  float: left;
 }
 
-.clearing {
-    clear: both;
-    height: 1px;
-    overflow: hidden;
+#box3 {
+  width: 396px;
+  overflow: hidden;
+  margin: 0 0 0 416px;
+}
+
+#content {
+  width: 812px;
+  margin: 0 0 0 320px;
+  padding: 0;
+}
+
+#copyright {
+  margin: 0 0 36px 0;
+  padding: 40px 0 64px 0;
+  text-align: center;
+}
+
+#copyright a {
+  color: #353535;
 }
 
 #footer {
-    clear: both;
-    padding: 0 40px;
-    height: 28px;
-    background: asset-url('footer.gif', image) no-repeat top;
+  position: relative;
+  padding: 24px;
+  width: 1132px;
+  background: #727074 asset-url('bg02.gif', image) repeat-x top left;
+  color: #d8d7d8;
+  border-radius: 0 0 10px 10px;
 }
 
-#footer p {
-    padding: 4px 0 0 0;
-    line-height: 24px;
-    color: White;
+#footer a {
+  color: #f5f5f5;
+}
+
+#footer h2, #footer h3, #footer h4 {
+  color: #fff;
+}
+
+#footer ul {
+  list-style: none;
+}
+
+#footer ul li {
+  padding: 8px 0 8px 0;
+  border-bottom: dotted 1px #fff;
+}
+
+#footer ul li.first {
+  padding-top: 0;
+  border-top: 0;
+}
+
+#footer ul li:last-child {
+  border: none;
+}
+
+#footerContent {
+  width: 812px;
+  margin: 0 0 0 320px;
+}
+
+#footerSidebar {
+  width: 300px;
+  float: left;
+}
+
+#header {
+  position: relative;
+  padding: 24px;
+  height: 130px;
+}
+
+#logo {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  height: 130px;
+  line-height: 130px;
+}
+
+#logo a {
+  text-decoration: none;
+  color: #000;
+}
+
+#logo a span {
+  color: #718424;
+}
+
+#logo h1 {
+  font-size: 2.75em;
+  font-family: "Patua One", serif;
+}
+
+
+#main {
+  position: relative;
+  padding: 24px;
+  width: 1132px;
+  margin: 0 0 0 0;
+  background: #ffffff asset-url('bg03.gif', image) repeat-x top left;
+  color: #3b3b3b;
+  border-radius: 10px 10px 0 0;
+}
+
+#main .sectionList {
+  list-style: none;
+  padding-left: 0;
+}
+
+#main .sectionList li {
+  clear: both;
+  padding: 16px 0 16px 0;
+}
+
+#main h2, #main h3, #main h4 {
+  color: #1f1f1f;
+}
+
+#main strong {
+  color: #212121;
+}
+
+#main ul {
+  list-style: none;
+}
+
+#main ul li {
+  padding: 8px 0 8px 0;
+  border-top: dotted 1px #bfbfbf;
+}
+
+#main ul li.first {
+  padding-top: 0;
+  border-top: 0;
+}
+
+#nav {
+  position: absolute;
+  right: 24px;
+  height: 57px;
+  line-height: 57px;
+  top: 60px;
+  font-family: "Patua One", serif;
+}
+
+#nav a {
+  text-decoration: none;
+  text-transform: lowercase;
+  font-size: 1.25em;
+  color: #0d0d0d;
+}
+
+#nav .active a {
+  color: #fff;
+  background: #718424;
+  padding: 6px;
+}
+
+#nav ul {
+  list-style: none;
+  padding: 0 12px 0 12px;
+}
+
+#nav ul li {
+  display: inline;
+  padding: 0 8px 0 8px;
+}
+
+#outer {
+  position: relative;
+  width: 1180px;
+  margin: 14px auto 0 auto;
+}
+
+.inputButton {
+  border: 0;
+  color: #fff;
+  background: #718424;
+  padding: 6px;
+  font-family: "Patua One", serif;
+  text-transform: lowercase;
+}
+
+#sidebar {
+  width: 300px;
+  float: left;
+  padding: 0;
+}
+
+td
+{
+  padding-right: 15px;
+  border-bottom: dotted 1px; 
 }
 
 th
 {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-right: 15px;
+  text-align: left;
+  padding-bottom: 5px;
+}
+td a
+{
+  text-decoration: none;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 2px;
+}
+td a:hover
+{
+  color: white;
+  background: #718424;  
+}
+
+a.agregar
+{
+  color: white;
+  background: #718424;  
+  text-decoration: none;  
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 2px;
+}
+
+a.agregar:hover
+{
+  background: #819434;
+}
+
+div.left
+{
+  float: left;
+  margin-right: 10px;
 }
