@@ -1,13 +1,11 @@
-<h1><%=t 'titulo.lugares' %></h1>
+<h2><%=t 'titulo.lugares' %></h2>
 
 <table>
   <tr>
     <th><%= t :nombre %></th>
     <th><%= t :direccion %></th>
     <th><%= t :url %></th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th colspan="3"></th>
   </tr>
 
 <% @lugares.each do |lugar| %>
@@ -15,13 +13,13 @@
     <td><%= lugar.nombre %></td>
     <td><%= lugar.direccion %></td>
     <td><%= lugar.url %></td>
-    <td><%= link_to 'Show', lugar %></td>
-    <td><%= link_to 'Edit', edit_lugar_path(lugar) %></td>
-    <td><%= link_to 'Destroy', lugar, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to t('ver'), lugar %></td>
+    <td><%= link_to t('editar'), edit_lugar_path(lugar) %></td>
+    <td><%= link_to t('borrar'), lugar, confirm: t('confirmacion_borrado'), method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Lugar', new_lugar_path %>
+<%= link_to t('nuevo_lugar'), new_lugar_path, :class => 'agregar' %>
