@@ -4,6 +4,7 @@ es:
     artistas: Listado de artistas
     usuarios: Listado de usuarios
     eventos: Listado de eventos
+    importar: Importar información
 
   # Etiquetas genéricas
   apellido: apellido
@@ -23,6 +24,7 @@ es:
   nombre: nombre
   nuevo_artista: Nuevo artista
   nuevo_evento: Nuevo evento
+  procesar: Procesar
   url: URL
   ver: ver
   volver: volver  

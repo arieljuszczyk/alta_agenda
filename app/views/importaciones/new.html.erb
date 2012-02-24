@@ -1,0 +1,11 @@
+<h2><%= t 'titulo.importar' %></h2>
+
+<%= form_tag('/importaciones', :multipart => true) do %>
+<%= @p %>
+	<div class="field">
+		<%= file_field_tag 'archivo' %>
+	</div>
+	<div class="actions">
+		<%= submit_tag(t('procesar'), :class => 'inputButton') %>
+	</div>  
+<% end %>

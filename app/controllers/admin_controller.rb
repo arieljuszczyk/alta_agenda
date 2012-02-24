@@ -4,7 +4,7 @@ class AdminController < ApplicationController
   
 private
   def chequear_login
-    unless logueado?
+    unless logueado? or Rails.env.development?
       redirect_to new_session_path
     end
   end  

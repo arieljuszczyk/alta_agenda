@@ -15,5 +15,7 @@ ActiveSupport::Inflector.inflections do |inflect|
 
   inflect.irregular 'lugar', 'lugares'
   inflect.irregular 'artista', 'artistas'
+  inflect.irregular 'dato_importado', 'datos_importados'
+  inflect.irregular 'importacion', 'importaciones'
 
 end

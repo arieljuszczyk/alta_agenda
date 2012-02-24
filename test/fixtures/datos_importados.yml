@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  artista: MyString
+  fecha: 2012-02-22
+  horario: 2012-02-22 21:32:58
+  lugar: MyString
+  direccion1: MyString
+  barrio1: MyString
+  web1: MyString
+  mail1: MyString
+  telefono1: MyString
+  source: MyString
+
+two:
+  artista: MyString
+  fecha: 2012-02-22
+  horario: 2012-02-22 21:32:58
+  lugar: MyString
+  direccion1: MyString
+  barrio1: MyString
+  web1: MyString
+  mail1: MyString
+  telefono1: MyString
+  source: MyString
