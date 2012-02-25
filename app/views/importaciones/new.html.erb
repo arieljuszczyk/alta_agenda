@@ -1,6 +1,6 @@
 <h2><%= t 'titulo.importar' %></h2>
 
-<%= form_tag('/importaciones', :multipart => true) do %>
+<%= form_tag('/importaciones', :multipart => true, 'accept-charset' => "ISO-8859-1") do %>
 <%= @p %>
 	<div class="field">
 		<%= file_field_tag 'archivo' %>
