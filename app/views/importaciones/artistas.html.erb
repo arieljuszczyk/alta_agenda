@@ -1,0 +1,37 @@
+<script>
+	function corregir(id)
+	{
+		combo = document.getElementById('artistas');
+		idArtista = combo.options[combo.selectedIndex].value;
+		location.href = '<%= importaciones_path %>/corregir/'+ id +'/por/'+ idArtista;
+	}
+</script>
+
+<h2><%= t 'artistas_nuevos' %></h2>
+
+<select id="artistas">
+	<% @artistas.each do |a| %>
+		<option value="<%= a.id %>"><%= a.nombre %></option>
+	<% end %>
+</select>
+
+<table>
+	<% @nuevos.each do |d| %>
+		<tr>
+			<td><%= d.artista %></td>
+			<td><a href="javascript: corregir('<%= d.id %>');">Corregir</a></td>
+		</tr>
+	<% end %>
+</table>
+
+<br/>
+
+<h2><%= t 'artistas_existentes' %></h2>
+
+<table>
+	<% @existentes.each do |d| %>
+		<tr>
+			<td><%= d.artista %></td>
+		</tr>	
+	<% end %>
+</table>
