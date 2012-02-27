@@ -11,6 +11,8 @@ AltaAgenda::Application.routes.draw do
   resources :artistas
 
   resources :lugares
+  
+  resources :home
 
   root :to => 'lugares#index'
 
