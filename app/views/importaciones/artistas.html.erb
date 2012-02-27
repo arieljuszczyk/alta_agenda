@@ -7,7 +7,10 @@
 	}
 </script>
 
-<h2><%= t 'artistas_nuevos' %></h2>
+<h1><%= t 'titulo.sincronizacion.artistas' %></h1>
+<br/>
+
+<h2><%= t 'titulo.sincronizacion.artistas_nuevos' %></h2>
 
 <select id="artistas">
 	<% @artistas.each do |a| %>
@@ -26,7 +29,7 @@
 
 <br/>
 
-<h2><%= t 'artistas_existentes' %></h2>
+<h2><%= t 'titulo.sincronizacion.artistas_existentes' %></h2>
 
 <table>
 	<% @existentes.each do |d| %>
@@ -35,3 +38,9 @@
 		</tr>	
 	<% end %>
 </table>
+
+<br/>
+
+<div class="text-right">
+	<%= link_to t('siguiente'), importaciones_path + '/lugares', :class => 'inputButton' %>
+</div>

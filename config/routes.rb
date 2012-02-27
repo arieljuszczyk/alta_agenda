@@ -19,6 +19,8 @@ AltaAgenda::Application.routes.draw do
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy'
   match '/importaciones/corregir/:id_dato/por/:id_artista' => 'importaciones#corregir'
+  match '/importaciones/corregir_lugar/:id_dato/por/:id_lugar', to: 'importaciones#corregir_lugar'
+  match '/importaciones/lugares', to: 'importaciones#lugares'
     
   # The priority is based upon order of creation:
   # first created -> highest priority.

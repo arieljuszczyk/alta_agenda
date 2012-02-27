@@ -1,0 +1,47 @@
+<script>
+	function corregir(id)
+	{
+		combo = document.getElementById('lugares');
+		idLugar = combo.options[combo.selectedIndex].value;
+		location.href = '<%= importaciones_path %>/corregir_lugar/'+ id +'/por/'+ idLugar;
+	}
+</script>
+
+<h1><%= t 'titulo.sincronizacion.lugares' %></h1>
+<br/>
+
+<h2><%= t 'titulo.sincronizacion.lugares_nuevos' %></h2>
+
+<select id="lugares">
+	<% @lugares.each do |l| %>
+		<option value="<%= l.id %>"><%= l.nombre %></option>
+	<% end %>
+</select>
+
+<table>
+	<% @nuevos.each do |d| %>
+		<tr>
+			<td><%= d.lugar %></td>
+			<td><a href="javascript: corregir('<%= d.id %>');">Corregir</a></td>
+		</tr>
+	<% end %>
+</table>
+
+<br/>
+
+<h2><%= t 'titulo.sincronizacion.lugares_existentes' %></h2>
+
+<table>
+	<% @existentes.each do |d| %>
+		<tr>
+			<td><%= d.lugar %></td>
+		</tr>	
+	<% end %>
+</table>
+
+<br/>
+<!--
+<div class="text-right">
+	<%= link_to t('siguiente'), importaciones_path + '/lugares', :class => 'inputButton' %>
+</div>
+-->

@@ -4,7 +4,14 @@ es:
     artistas: Listado de artistas
     usuarios: Listado de usuarios
     eventos: Listado de eventos
-    importar: Importar información
+    importar: Importar informaci&oacute;n
+    sincronizacion:
+      artistas: Sincronización de artistas
+      artistas_nuevos: Artistas nuevos
+      artistas_existentes: Artistas existentes
+      lugares: Sincronización de lugares
+      lugares_nuevos: Lugares nuevos
+      lugares_existentes: Lugares existentes
 
   # Etiquetas genéricas
   apellido: apellido
@@ -25,6 +32,7 @@ es:
   nuevo_artista: Nuevo artista
   nuevo_evento: Nuevo evento
   procesar: Procesar
+  siguiente: siguiente
   url: URL
   ver: ver
   volver: volver  

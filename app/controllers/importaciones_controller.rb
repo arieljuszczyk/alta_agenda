@@ -29,7 +29,7 @@ class ImportacionesController < AdminController
       end
     end    
 
-	cargar_datos_artistas
+    cargar_datos_artistas
     
     render 'artistas'
   end
@@ -46,7 +46,41 @@ class ImportacionesController < AdminController
 	render 'artistas'
   end
 
+  def corregir_lugar
+  	  dato = DatoImportado.find(params[:id_dato])
+  	  lugar = Lugar.find(params[:id_lugar])
+  	  
+  	  dato.lugar = lugar.nombre
+  	  dato.save
+  	  
+  	  cargar_datos_lugares
+  	  
+  	  render 'lugares'
+  end
+  
+  def lugares
+  	  cargar_datos_lugares
+
+  	  render 'lugares'	  
+  end
+  
 private
+	def cargar_datos_lugares
+		lugares = DatoImportado.where(:importado => false)
+		
+		@lugares = Lugar.all
+		@existentes = Array.new
+		@nuevos = Array.new
+		
+		lugares.each do |l|
+			if Lugar.exists?(:nombre => l.lugar)
+				@existentes << l
+			else
+				@nuevos << l
+			end
+		end
+	end
+
 	def cargar_datos_artistas
 		artistas = DatoImportado.where(:importado => false)
 		
