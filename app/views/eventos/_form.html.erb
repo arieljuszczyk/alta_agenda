@@ -10,7 +10,6 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= f.label :artista %>
     <%= collection_select(:evento, :artista_id, Artista.all, :id, :nombre, :prompt => true )%>
@@ -19,7 +18,13 @@
     <%= f.label :lugar %>
     <%= collection_select(:evento, :lugar_id, Lugar.all, :id, :nombre, :prompt => true )%>
   </div>
-  <div class="actions">
+        
+  <div class="field">
+    <%= f.label :fecha %>           
+    <%= f.text_field :fecha %>   
+  </div>
+  
+    <div class="actions">
     <%= f.submit :value => t('grabar'), :class => 'inputButton' %>
   </div>
 <% end %>

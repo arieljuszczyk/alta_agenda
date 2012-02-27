@@ -12,4 +12,16 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require jquery-ui-timepicker-addon.js
 //= require_tree .
+
+$(function() {
+  $("#evento_fecha").datetimepicker(
+  	{
+  		dateFormat: 'yy-mm-dd',
+  		hour: 12,
+		minute: 00  	
+  	}
+  );
+});

@@ -10,6 +10,11 @@
   <%= @evento.lugar.nombre %>
 </p>
 
+<p>
+  <b><%= t 'fecha' %>:</b>
+  <%= @evento.fecha.to_formatted_s(:short) %>
+</p>
+
 
 <%= link_to t('editar'), edit_evento_path(@evento) %> |
 <%= link_to t('volver'), eventos_path %>

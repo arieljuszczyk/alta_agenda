@@ -4,6 +4,7 @@
   <tr>
     <th><%= t 'artista' %></th>
     <th><%= t 'lugar' %></th>
+    <th><%= t 'fecha' %></th>
     <th colspan="3"></th>
   </tr>
 
@@ -11,6 +12,7 @@
   <tr>
     <td><%= evento.artista.nombre %></td>
     <td><%= evento.lugar.nombre %></td>
+    <td><%= evento.fecha.to_formatted_s(:short) %></td>
     <td><%= link_to t('ver'), evento %></td>
     <td><%= link_to t('editar'), edit_evento_path(evento) %></td>
     <td><%= link_to t('borrar'), evento, confirm: t('confirmacion_borrado'), method: :delete %></td>
