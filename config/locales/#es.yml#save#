@@ -4,15 +4,14 @@ es:
     artistas: Listado de artistas
     usuarios: Listado de usuarios
     eventos: Listado de eventos
-    importar: Importar información
+    importar: Importar informacion
     sincronizacion:
-      artistas: Sincronización de artistas
+      artistas: Sincronizaci�n de artistas
       artistas_nuevos: Artistas nuevos
       artistas_existentes: Artistas existentes
-      lugares: Sincronización de lugares
+      lugares: Sincronizaci�n de lugares
       lugares_nuevos: Lugares nuevos
       lugares_existentes: Lugares existentes
-      eventos: Sincronización de eventos
 
   # Etiquetas genéricas
   apellido: apellido
@@ -26,10 +25,7 @@ es:
   editar: editar
   email: e-mail
   e-mail: e-mail
-  fecha: fecha
   grabar: grabar
-  hora: hora
-  importar: importar
   login: login
   lugar: lugar
   nombre: nombre

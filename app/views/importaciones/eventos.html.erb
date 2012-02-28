@@ -1,0 +1,21 @@
+<h1><%= t 'titulo.sincronizacion.eventos' %></h1>
+<br/>
+
+<table>
+	<tr>
+		<th><%= t 'nombre' %></th>
+		<th><%= t 'fecha' %></th>
+		<th><%= t 'hora' %></th>
+	</tr>
+	<% @eventos.each do |e| %>
+		<tr>
+			<td><%= e.nombre_evento %></td>
+			<td><%= e.fecha %></td>
+			<td><%= e.horario.strftime("%H:%M") %></td>
+		</tr>
+	<% end %>
+</table>
+
+<br/>
+
+<%= link_to t('importar'), "#{importaciones_path}/importar", :class => 'inputButton caps' %>

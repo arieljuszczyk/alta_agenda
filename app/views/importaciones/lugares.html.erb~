@@ -40,8 +40,8 @@
 </table>
 
 <br/>
-
+<!--
 <div class="text-right">
-	<%= link_to t('siguiente'), importaciones_path + '/eventos', :class => 'inputButton' %>
+	<%= link_to t('siguiente'), importaciones_path + '/lugares', :class => 'inputButton' %>
 </div>
-
+-->

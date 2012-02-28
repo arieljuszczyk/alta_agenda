@@ -365,13 +365,3 @@ div.left
   float: left;
   margin-right: 10px;
 }
-
-.text-right
-{
-	text-align: right;
-}
-
-.caps
-{
-  text-transform: uppercase;
-}

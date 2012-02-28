@@ -21,8 +21,6 @@ AltaAgenda::Application.routes.draw do
   match '/importaciones/corregir/:id_dato/por/:id_artista' => 'importaciones#corregir'
   match '/importaciones/corregir_lugar/:id_dato/por/:id_lugar', to: 'importaciones#corregir_lugar'
   match '/importaciones/lugares', to: 'importaciones#lugares'
-  match '/importaciones/eventos', to: 'importaciones#eventos'
-  match '/importaciones/importar', to: 'importaciones#importar'
     
   # The priority is based upon order of creation:
   # first created -> highest priority.

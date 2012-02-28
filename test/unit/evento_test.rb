@@ -7,6 +7,7 @@
 #  lugar_id   :integer
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
+#  fecha      :datetime
 #
 
 require 'test_helper'

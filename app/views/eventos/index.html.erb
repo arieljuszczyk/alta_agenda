@@ -10,8 +10,8 @@
 
 <% @eventos.each do |evento| %>
   <tr>
-    <td><%= evento.artista.nombre %></td>
-    <td><%= evento.lugar.nombre %></td>
+    <td><%= evento.artista.nombre unless evento.artista.nil? %></td>
+    <td><%= evento.lugar.nombre unless evento.lugar.nil? %></td>
     <td><%= evento.fecha.to_formatted_s(:short) unless evento.fecha.nil? %></td>
     <td><%= link_to t('ver'), evento %></td>
     <td><%= link_to t('editar'), edit_evento_path(evento) %></td>
