@@ -14,7 +14,7 @@
   <tr>
     <td><%= evento.artista.nombre unless evento.nil? or evento.artista.nil? %></td>
     <td><%= evento.lugar.nombre unless evento.nil? or evento.lugar.nil? %></td>
-    <td><%= evento.fecha.to_formatted_s(:short) unless evento.nil? %></td>    
+    <td><%= evento.fecha.to_formatted_s(:short) unless evento.nil? or evento.fecha.nil? %></td>    
   </tr>
 <% end %>
 </table>
