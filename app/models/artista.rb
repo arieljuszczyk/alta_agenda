@@ -11,4 +11,6 @@
 
 class Artista < ActiveRecord::Base
   has_many :eventos  
+  
+  validates :nombre, :url, :presence => { :message => "es un campo requerido. Por favor completar." }
 end

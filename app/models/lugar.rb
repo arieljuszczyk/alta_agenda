@@ -12,4 +12,6 @@
 
 class Lugar < ActiveRecord::Base
   has_many :eventos
+  
+  validates :nombre, :direccion, :url, :presence => { :message => "es un campo requerido. Por favor completar." }
 end
