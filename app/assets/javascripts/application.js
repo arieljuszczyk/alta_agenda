@@ -17,11 +17,19 @@
 //= require_tree .
 
 $(function() {
-  $("#evento_fecha").datetimepicker(
+  $("#evento_fecha").datepicker(
   	{
-  		dateFormat: 'yy-mm-dd',
-  		hour: 12,
-		minute: 00  	
+  		dateFormat: 'yy-mm-dd'  		
   	}
   );
 });
+
+
+$(function() {
+  $("#evento_time").timepicker(
+  	{  		
+  		hour: 12,
+		minute: 00		
+  	}
+  );
+}); 
