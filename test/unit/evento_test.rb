@@ -8,6 +8,7 @@
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
 #  fecha      :datetime
+#  time       :string(255)
 #
 
 require 'test_helper'

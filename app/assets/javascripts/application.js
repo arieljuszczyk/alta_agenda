@@ -15,21 +15,20 @@
 //= require jquery-ui
 //= require jquery-ui-timepicker-addon.js
 //= require_tree .
-
 $(function() {
   $("#evento_fecha").datepicker(
-  	{
-  		dateFormat: 'yy-mm-dd'  		
-  	}
+    {
+      dateFormat: 'yy-mm-dd'      
+    }
   );
 });
 
 
 $(function() {
   $("#evento_time").timepicker(
-  	{  		
-  		hour: 12,
-		minute: 00		
-  	}
+    {     
+      hour: 12,
+    minute: 00    
+    }
   );
 }); 
