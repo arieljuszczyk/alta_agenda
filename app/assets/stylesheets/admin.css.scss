@@ -305,13 +305,18 @@ input[type=text], input[type=password]
   margin: 14px auto 0 auto;
 }
 
-.inputButton {
+.inputButton 
+{
   border: 0;
   color: #fff;
   background: #718424;
-  padding: 6px;
-  font-family: "Patua One", serif;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: verdana, sans-serif, arial;
   text-transform: lowercase;
+  -moz-border-radius:5px;  
+  border-radius: 5px;  
+  -webkit-border-radius: 5px;
 }
 
 #sidebar {
@@ -374,4 +379,19 @@ div.left
 .caps
 {
   text-transform: uppercase;
+}
+
+legend
+{
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+fieldset
+{
+  -moz-border-radius:5px;  
+  border-radius: 5px;  
+  -webkit-border-radius: 5px;
+  padding-left: 15px;
+  padding-top: 15px;
 }
