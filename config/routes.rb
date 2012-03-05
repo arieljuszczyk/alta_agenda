@@ -23,7 +23,9 @@ AltaAgenda::Application.routes.draw do
   match '/importaciones/lugares', to: 'importaciones#lugares'
   match '/importaciones/eventos', to: 'importaciones#eventos'
   match '/importaciones/importar', to: 'importaciones#importar'
-    
+  
+  match '/home/filtrar/:id_fecha', to: 'home#index'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
