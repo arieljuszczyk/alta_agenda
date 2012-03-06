@@ -15,6 +15,20 @@
   <%= @lugar.url %>
 </p>
 
+<p>
+  <b><%= t 'barrio' %>:</b>
+  <%= @lugar.barrio %>
+</p>
+
+<p>
+  <b><%= t 'mail' %>:</b>
+  <%= @lugar.mail %>
+</p>
+
+<p>
+  <b><%= t 'telefono' %>:</b>
+  <%= @lugar.telefono %>
+</p>
 
 <%= link_to t('editar'), edit_lugar_path(@lugar) %> |
 <%= link_to t('volver'), lugares_path %>
