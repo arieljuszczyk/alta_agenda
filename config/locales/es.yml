@@ -44,7 +44,9 @@ es:
   # Mensajes
   confirmacion_borrado: ¿Está seguro?
   login_invalido: e-mail o contraseña inválidos
-  
+  mensajes:
+    tip_carga_archivo_import: El archivo es opcional, si no subís nada, se procesarán los datos pendientes de la base.
+    
   activerecord:
     errors:
       models:

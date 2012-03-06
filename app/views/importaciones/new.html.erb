@@ -8,6 +8,9 @@
 		<div class="field">
 			<%= file_field_tag 'archivo' %>
 		</div>
+		<div class="field">
+			<span class="tip"><%= t 'mensajes.tip_carga_archivo_import' %></span>
+		</div>
 		<div class="actions">
 			<%= submit_tag(t('procesar'), :class => 'inputButton') %>
 		</div>  
