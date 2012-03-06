@@ -1,43 +1,58 @@
 <script>
-	function corregir(id)
+	function corregir(nombre_lugar)
 	{
 		combo = document.getElementById('lugares');
-		idLugar = combo.options[combo.selectedIndex].value;
-		location.href = '<%= importaciones_path %>/corregir_lugar/'+ id +'/por/'+ idLugar;
+		id_lugar = combo.options[combo.selectedIndex].value;
+		
+		form = document.getElementById('form_correccion');
+		form.elements['id_lugar'].value = id_lugar;
+		form.elements['nombre_lugar'].value = nombre_lugar;
+		form.submit(); 
 	}
 </script>
 
+<form id="form_correccion" name="form_correccion" action="<%= importaciones_path %>/corregir_lugar" method="post">
+	<input type="hidden" name="id_lugar" />
+	<input type="hidden" name="nombre_lugar" />
+</form>
+
 <h1><%= t 'titulo.sincronizacion.lugares' %></h1>
 <br/>
-
-<h2><%= t 'titulo.sincronizacion.lugares_nuevos' %></h2>
-
-<select id="lugares">
-	<% @lugares.each do |l| %>
-		<option value="<%= l.id %>"><%= l.nombre %></option>
-	<% end %>
-</select>
-
-<table>
-	<% @nuevos.each do |d| %>
-		<tr>
-			<td><%= d.lugar %></td>
-			<td><a href="javascript: corregir('<%= d.id %>');">Corregir</a></td>
-		</tr>
-	<% end %>
-</table>
-
 <br/>
 
-<h2><%= t 'titulo.sincronizacion.lugares_existentes' %></h2>
-
-<table>
-	<% @existentes.each do |d| %>
+<div class="left">
+	<table>
 		<tr>
-			<td><%= d.lugar %></td>
-		</tr>	
-	<% end %>
-</table>
+			<th colspan="2">
+				<%= t 'titulo.sincronizacion.lugares_nuevos' %>
+				<select id="lugares">
+					<% @lugares.each do |l| %>
+						<option value="<%= l.id %>"><%= l.nombre %></option>
+					<% end %>
+				</select>
+			</th>
+		</tr>
+		<% @nuevos.each do |d| %>
+			<tr>
+				<td><%= d %></td>
+				<td><a href="javascript: corregir('<%= d %>');">Corregir</a></td>
+			</tr>
+		<% end %>
+	</table>
+</div>
+
+<div class="left">
+	<table>
+		<tr>
+			<th><%= t 'titulo.sincronizacion.lugares_existentes' %></th>
+		</tr>
+		<% @existentes.each do |d| %>
+			<tr>
+				<td><%= d %></td>
+			</tr>	
+		<% end %>
+	</table>
+</div>
 
 <br/>
 

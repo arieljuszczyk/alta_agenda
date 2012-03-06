@@ -48,11 +48,10 @@ class ImportacionesController < AdminController
   end
 
   def corregir_lugar
-  	  dato = DatoImportado.find(params[:id_dato])
-  	  lugar = Lugar.find(params[:id_lugar])
-  	  
-  	  dato.lugar = lugar.nombre
-  	  dato.save
+      lugar = Lugar.find(params[:id_lugar])
+  	  nombre_incorrecto = params[:nombre_lugar]
+
+      DatoImportado.update_all "lugar = '#{lugar.nombre}'", "lugar = '#{nombre_incorrecto}' and importado = 'f'"
   	  
   	  cargar_datos_lugares
   	  
@@ -114,17 +113,18 @@ class ImportacionesController < AdminController
   
 private
 	def cargar_datos_lugares
-		lugares = DatoImportado.where(:importado => false)
+		lugares = DatoImportado.order(:lugar).where(:importado => false)
 		
 		@lugares = Lugar.all
+		
 		@existentes = Array.new
 		@nuevos = Array.new
 		
 		lugares.each do |l|
-			if Lugar.exists?(:nombre => l.lugar)
-				@existentes << l
+			if Lugar.exists?(:nombre => l.lugar)			  
+				@existentes << l.lugar unless @existentes.include?(l.lugar)
 			else
-				@nuevos << l
+				@nuevos << l.lugar unless @nuevos.include?(l.lugar)
 			end
 		end
 	end

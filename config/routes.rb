@@ -19,7 +19,7 @@ AltaAgenda::Application.routes.draw do
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy'
   match '/importaciones/corregir_artista' => 'importaciones#corregir_artista'
-  match '/importaciones/corregir_lugar/:id_dato/por/:id_lugar', to: 'importaciones#corregir_lugar'
+  match '/importaciones/corregir_lugar', to: 'importaciones#corregir_lugar'
   match '/importaciones/lugares', to: 'importaciones#lugares'
   match '/importaciones/eventos', to: 'importaciones#eventos'
   match '/importaciones/importar', to: 'importaciones#importar'
