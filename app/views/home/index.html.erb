@@ -1,20 +1,42 @@
+<script>
+	function filtrarPorFecha(id)
+	{
+		combo = document.getElementById('fecha');		
+		fechaSeleccionada = combo.options[combo.selectedIndex].value;				
+		location.href = '<%= home_path %>/filtrar/' + fechaSeleccionada;
+	}
+	
+	//document.getElementById('fecha').selectedIndex = <%= params[:id_fecha]%>;
+	
+</script>
 
 <h2><%= t 'titulo.home' %></h2>
 
 <table>
   
+    <tr>   
+    <th><%= t 'fecha' %></th>
+    <th>
+        <%= select_tag(:fecha, options_for_select([['Todas', 0], ['Hoy', 1], ['Mañana', 2], ['Fin de semana', 3], ['Esta semana', 4], ['Este mes', 5]], selected = params[:id_fecha])) %>       
+    </th>
+    <th><a href="javascript: filtrarPorFecha();">Filtrar</a></th>
+       
+  </tr>
+  
   <tr>
     <th><%= t 'artista' %></th>
     <th><%= t 'lugar' %></th>
     <th><%= t 'fecha' %></th>
+    <th><%= t 'hora' %></th>
     <th colspan="3"></th>
   </tr>
 
 <% @eventos.each do |evento| %>
   <tr>
-    <td><%= evento.artista.nombre unless evento.nil? or evento.artista.nil? %></td>
-    <td><%= evento.lugar.nombre unless evento.nil? or evento.lugar.nil? %></td>
-    <td><%= evento.fecha.to_formatted_s(:short) unless evento.nil? or evento.fecha.nil? %></td>    
+    <td><%= evento.artista.nombre %></td>
+    <td><%= evento.lugar.nombre %></td>
+    <td><%= evento.fecha.to_date.to_formatted_s(:short) unless evento.fecha.nil? %></td>
+    <td><%= evento.time unless evento.time.nil? %></td>
   </tr>
 <% end %>
 </table>
