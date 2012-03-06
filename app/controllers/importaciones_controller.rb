@@ -36,6 +36,15 @@ class ImportacionesController < AdminController
     render 'artistas'
   end
   
+  def destroy
+    dato_importado = DatoImportado.find(params[:id])
+    dato_importado.destroy
+
+    @eventos = DatoImportado.where(:importado => false)
+
+    render 'eventos'
+  end
+  
   def corregir_artista
   	artista = Artista.find(params[:id_artista])
   	nombre_incorrecto = params[:nombre_artista]

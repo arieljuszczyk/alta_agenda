@@ -2,7 +2,7 @@ AltaAgenda::Application.routes.draw do
   
   resources :sessions, only: [:new, :create, :destroy]
   
-  resources :importaciones, only: [:new, :create]
+  resources :importaciones, only: [:new, :create, :destroy]
   
   resources :usuarios
 

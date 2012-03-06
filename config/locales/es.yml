@@ -47,7 +47,7 @@ es:
   mensajes:
     tip_carga_archivo_import: El archivo es opcional, si no subís nada, se procesarán los datos pendientes de la base.
     tip_artistas_nuevos_import: Si algún artista es incorrecto, seleccioná el correcto de este combo y hacé click en 'Corregir'. Los existentes se ingresarán tal cual están.
-    sincro_eventos: Esta es la información que efectivamente se importará al sistema.
+    sincro_eventos: Esta es la información que efectivamente se importará al sistema. Eliminá los que no deban importarse.
     
   activerecord:
     errors:

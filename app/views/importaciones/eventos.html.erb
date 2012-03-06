@@ -11,6 +11,7 @@
 		<th><%= t 'artista' %></th>
 		<th><%= t 'fecha' %></th>
 		<th><%= t 'hora' %></th>
+		<th>&nbsp;</th>
 	</tr>
 	<% @eventos.each do |e| %>
 		<tr>
@@ -19,6 +20,7 @@
 			<td><%= e.artista %></td>
 			<td nowrap><%= e.fecha %></td>
 			<td><%= e.horario.strftime("%H:%M") %></td>
+			<td><%= link_to t('borrar'), "#{importaciones_path}/#{e.id}", confirm: t('confirmacion_borrado'), method: :delete %></td>
 		</tr>
 	<% end %>
 </table>
