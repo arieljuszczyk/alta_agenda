@@ -1,5 +1,7 @@
 AltaAgenda::Application.routes.draw do
   
+  root :to => 'home#index'
+
   resources :sessions, only: [:new, :create, :destroy]
   
   resources :importaciones, only: [:new, :create, :destroy]
@@ -12,7 +14,7 @@ AltaAgenda::Application.routes.draw do
 
   resources :lugares
   
-  root :to => 'home#index'
+  resources :home
 
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy'
