@@ -36,13 +36,12 @@ class ImportacionesController < AdminController
     render 'artistas'
   end
   
-  def corregir
-  	dato = DatoImportado.find(params[:id_dato])
+  def corregir_artista
   	artista = Artista.find(params[:id_artista])
-  	
-  	dato.artista = artista.nombre
-  	dato.save
-  	
+  	nombre_incorrecto = params[:nombre_artista]
+
+    DatoImportado.update_all "artista = '#{artista.nombre}'", "artista = '#{nombre_incorrecto}' and importado = 'f'"
+    
   	cargar_datos_artistas
   	
   	render 'artistas'

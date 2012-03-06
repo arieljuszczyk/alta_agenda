@@ -1,11 +1,20 @@
 <script>
-	function corregir(id)
+	function corregir(nombre_artista)
 	{
 		combo = document.getElementById('artistas');
-		idArtista = combo.options[combo.selectedIndex].value;
-		location.href = '<%= importaciones_path %>/corregir/'+ id +'/por/'+ idArtista;
+		id_artista = combo.options[combo.selectedIndex].value;
+		form = document.getElementById('form_correccion');
+		
+		form.elements['id_artista'].value = id_artista;
+		form.elements['nombre_artista'].value = nombre_artista;
+		form.submit();
 	}
 </script>
+
+<form id="form_correccion" name="form_correccion" action="<%= importaciones_path %>/corregir_artista" method="post">
+	<input type="hidden" name="id_artista" />
+	<input type="hidden" name="nombre_artista" />
+</form>
 
 <h1><%= t 'titulo.sincronizacion.artistas' %></h1>
 <br/>
