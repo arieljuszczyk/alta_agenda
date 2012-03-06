@@ -1,4 +1,9 @@
 class HomeController < ApplicationController
+  
+  def show
+    
+  end
+  
   # GET /eventos
   # GET /eventos.json
   def index
