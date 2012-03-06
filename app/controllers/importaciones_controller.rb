@@ -37,15 +37,15 @@ class ImportacionesController < AdminController
   end
   
   def corregir
-	dato = DatoImportado.find(params[:id_dato])
-	artista = Artista.find(params[:id_artista])
-	
-	dato.artista = artista.nombre
-	dato.save
-	
-	cargar_datos_artistas
-	
-	render 'artistas'
+  	dato = DatoImportado.find(params[:id_dato])
+  	artista = Artista.find(params[:id_artista])
+  	
+  	dato.artista = artista.nombre
+  	dato.save
+  	
+  	cargar_datos_artistas
+  	
+  	render 'artistas'
   end
 
   def corregir_lugar
@@ -131,17 +131,18 @@ private
 	end
 
 	def cargar_datos_artistas
-		artistas = DatoImportado.where(:importado => false)
+		artistas = DatoImportado.order(:artista).where(:importado => false)
 		
 		@artistas = Artista.all
+		
 		@existentes = Array.new
 		@nuevos = Array.new
 		
 		artistas.each do |a|
 		  if Artista.exists?(:nombre => a.artista)
-			@existentes << a
+		    @existentes << a.artista unless @existentes.include?(a.artista) 
 		  else
-			@nuevos << a
+			   @nuevos << a.artista unless @nuevos.include?(a.artista)
 		  end
 		end
 	end
