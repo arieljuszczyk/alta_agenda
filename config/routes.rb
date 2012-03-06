@@ -12,8 +12,6 @@ AltaAgenda::Application.routes.draw do
 
   resources :lugares
   
-  resources :home
-
   root :to => 'home#index'
 
   match '/signin',  to: 'sessions#new'
