@@ -3,7 +3,7 @@
 	{
 		combo = document.getElementById('fecha');		
 		fechaSeleccionada = combo.options[combo.selectedIndex].value;				
-		location.href = '<%= home_path %>/filtrar/' + fechaSeleccionada;
+		location.href = '/home/filtrar/' + fechaSeleccionada;
 	}
 	
 	//document.getElementById('fecha').selectedIndex = <%= params[:id_fecha]%>;
