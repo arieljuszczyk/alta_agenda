@@ -1,18 +1,20 @@
 
-	<div id="header">
-		<div id="logo">
-			<h1><a href="<%= root_url %>"><span>alta_</span>agenda</a></h1>
-		</div>
-		<div id="nav">
-			<ul>
-            	<%= item_menu 'usuarios', usuarios_path %>
-            	<%= item_menu 'lugares', lugares_path %>
-            	<%= item_menu 'eventos', eventos_path %>
-            	<%= item_menu 'artistas', artistas_path %>
-            	<%= item_menu 'importaciones', new_importacion_path %>
-			</ul>
-			<br class="clear" />
-		</div>
+	<div id="links">
+		<!-- **** INSERT LINKS HERE **** -->
+		<a href="#">another link</a> | <a href="#">another link</a> | <a href="#">another link</a> | <a href="#">another link</a>
 	</div>
-
-
+	
+	<div id="logo">
+		<h1>alta_agenda</h1>
+		<h2>&quot;as queer as a clockwork orange&quot;</h2>
+	</div>
+	
+	<div id="menu">
+		<ul>
+    	<%= item_menu 'usuarios', usuarios_path %>
+    	<%= item_menu 'lugares', lugares_path %>
+    	<%= item_menu 'eventos', eventos_path %>
+    	<%= item_menu 'artistas', artistas_path %>
+    	<%= item_menu 'importaciones', new_importacion_path %>
+		</ul>
+	</div>

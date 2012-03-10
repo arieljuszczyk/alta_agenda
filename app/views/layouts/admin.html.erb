@@ -1,6 +1,6 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 	
 	<head>
   		<title><%= titulo %></title>
@@ -10,58 +10,28 @@
 	</head>
 	
 	<body>
+		
+		<div id="main">
 
-		<div id="outer">
 			<%= render 'layouts/admin_header' %>
+    		
+    		<div id="content">
+    			
+      			<div id="column1">
+        			<div class="sidebaritem">
+        				<%= render 'layouts/login_form' %>
+					</div>				
+      			</div>
+      			
+      			<div id="column2">
+      				<%= yield %>
+  				</div>
+    		</div>
 
-			<% flash.each do |key, value| %>
-				<div class="flash <%= key %>"><%= value %></div>
-			<% end %>
-
-			<div id="main">
-				<%= render 'layouts/login_form' %>
-				<div id="content">					
-					<div id="box1">
-						<%= yield %>
-					</div>
-					<!--
-					<div id="box2">
-						<h3>Sociis feugiat felis justo</h3>
-						<ul class="sectionList">
-							<li class="first">
-								<img class="left" src="images/pic02.jpg" width="96" height="96" alt="" /> <span>Nascetur sodales placerat porta posuere consequat fermentum cubilia feugiat tortor nunc magnis primis ornare suscipit non elit nascetur tristique mauris.</span>
-							</li>
-							<li class="last">
-								<img class="left" src="images/pic03.jpg" width="96" height="96" alt="" /> <span>Quisque metus aenean velit aliquet quam viverra rhoncus facilisis semper leo vivamus metus mus facilisis parturient tempor dignissim est gravida.</span>
-							</li>
-						</ul>
-					</div>
-					<div id="box3">
-						<h3>Eget adipiscing tellus</h3>
-						<ul class="sectionList">
-							<li class="first">
-								<img class="left" src="images/pic04.jpg" width="96" height="96" alt="" /> <span>Nascetur sodales placerat porta posuere consequat fermentum cubilia feugiat tortor nunc magnis primis ornare suscipit non elit nascetur tristique mauris.</span>
-							</li>
-							<li class="last">
-								<img class="left" src="images/pic05.jpg" width="96" height="96" alt="" /> <span>Quisque metus aenean velit aliquet quam viverra rhoncus facilisis semper leo vivamus metus mus facilisis parturient tempor dignissim est gravida.</span>
-							</li>
-						</ul>
-					</div>
-					-->
-					<br class="clear" />
-				</div>
-				<br class="clear" />
-			</div>
 			<%= render 'layouts/admin_footer' %>
-		</div>
-		<%= debug(params) if Rails.env.development? %>
-		<div id="copyright">
-			Corporatta by <a href="http://doni.us/">Adonis</a> for <a href="http://freewebsitetemplat.es">Free Website Templates</a>. 
-			Imágenes by <a href="http://imagebase.davidniblack.com/">Image Base</a>.
-		</div>
-		<div style="margin: 1em 0 3em 0; text-align: center;">
-			<!--%@##-->Dise&ntilde;o provisto por <a href="http://www.freewebtemplates.com/">Free Website Templates</a>.<!--##@%-->
-		</div>
-
-</body>
+  
+  		</div>
+  		
+	</body>
+	
 </html>

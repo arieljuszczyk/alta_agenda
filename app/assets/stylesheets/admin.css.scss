@@ -1,403 +1,390 @@
 // Place all the styles related to the admin controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-/*
-  Website Name by Adonis Ronquillo for Free Website Templates
-  www.freewebsitetemplat.es / www.doni.us
-  Released under the Creative Commons Attribution 3.0 License.
-*/
 
-* {
-  margin: 0;
-  padding: 0;
+/* global */
+html{height: 100%;}
+
+body
+{ font-family: verdana, arial, sans-serif;
+  padding: 0px;
+  margin: 0px;
+  font-size: .68em;
 }
 
-a {
-  text-decoration: underline;
-  color: #718424;
+p
+{ margin: 0px;
+  padding: 0px 0px 16px 0px;
+  line-height: 1.7em;
 }
 
-a:hover {
+h1
+{ font-family: arial, sans-serif;
+  font-size: 108%;
+  letter-spacing: .1em;
+}
+
+h2
+{ margin: 0px;
+  padding: 0px 0px 4px 0px;
+  font-size: 100%;
+}
+
+img{border: 0px;}
+
+a{outline: none;}
+
+/* image positioning - left, right and center */
+.left
+{ float: left; 
+  padding: 0px 8px 0px 0px;
+}
+
+.right
+{ float: right; 
+  padding: 0px 0px 0px 8px;
+}
+
+.center
+{ display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* block quote */
+blockquote
+{ margin: 20px 0px 20px 0px; 
+  padding: 10px 20px 0px 20px;
+  border-left: 8px solid;
+}
+
+/* unordered list */
+ul
+{ margin: 8px 0px 0px 16px;
+  padding: 0px;
+}
+
+ul li
+{ list-style-type: square;
+  margin: 0px 0px 11px 0px; 
+  padding: 0px;
+}
+
+/* ordered list */
+ol
+{ margin: 8px 0px 0px 24px;
+  padding: 0px;
+}
+
+ol li
+{ margin: 0px 0px 11px 0px; 
+  padding: 0px;
+}
+
+/* margin lefts / margin rights - to centre content */
+#main, #links, #footer, #logo, #menu, #content
+{ margin-left: auto; 
+  margin-right: auto;
+}
+
+/* main container */
+#main{width: 780px;}
+
+/* links above the logo / footer */
+#links, #footer
+{ width: 726px;
+  height: 20px;
+  font-size: 88%;
+  text-transform: uppercase;
+  padding: 8px 21px 0px 19px;
+}
+
+#links{text-align: right;}
+
+#footer
+{ text-align: center; 
+  border-top: 2px solid;
+}
+
+#links a, #footer a{text-decoration: none;}
+
+#links a:hover, #footer a:hover{text-decoration: underline;}
+
+/* logo */
+#logo
+{ width: 766px;
+  height: 125px;
+  border-top: 2px solid;
+  border-bottom: 5px solid;
+}
+
+#logo h1, #logo h2
+{ margin: 0px;
+  letter-spacing: .2em;
+}
+
+#logo h1
+{ padding: 28px 0px 0px 139px;
+  font-size: 160%;
+}
+
+#logo h2
+{ font-family: arial, sans-serif;
+  padding: 5px 0px 0px 139px;
+  font-size: 108%;
+}
+
+/* navigation menu */
+#menu
+{ height: 30px;
+  width: 766px;
+  margin-top: -30px;
+  position: relative;
+}
+
+#menu ul{margin: 0px auto;} 
+
+#menu li
+{ float: left; 
+  margin: 0px 5px 0px 0px; 
+  padding: 0px;
+  list-style: none;
+} 
+
+#menu li a 
+{ display: block; 
+  float: left; 
+  height: 20px;
+  text-decoration: none; 
+  padding: 6px 19px 2px 19px;
+  border: 1px solid;
+  text-transform: uppercase;
+  font-size: 88%;
+} 
+
+#menu li a:hover, #menu li a#selected, #menu li a#selected:hover
+{ height: 20px;
+  padding: 7px 20px 2px 20px;
+  border: 0px;
+} 
+
+/* main content */
+#content
+{ width: 766px;
+  overflow: hidden;
+} 
+
+/* column 1 - contains sidebar items */
+#column1
+{ width: 198px;
+  margin: 22px 0px 0px 0px;
+  float: right;
+  padding: 19px 19px 15px 19px;
+}
+
+.sidebaritem
+{ text-align: left;
+  width: 168px;
+  float: left;
+  margin: 0px 0px 23px 0px;
+  border: 1px solid;
+  padding: 14px 8px 14px 19px;
+}
+
+.sidebaritem h1
+{ margin: 0px; 
+  font-weight: normal;
+  padding: 0px 0px 16px 0px;
+  text-transform: uppercase;
+}
+
+.sidebaritem p
+{ line-height: 16px; 
+  padding: 0px 0px 8px 0px;
+}
+
+.sidebaritem a, .sidebaritem a:hover
+{ padding: 0px 0px 2px 19px;
   text-decoration: none;
 }
 
-body {
-  font-size: 12.5pt;
-  line-height: 1.75em;
-  background: #f1f0f3 asset-url('bg.jpg', image) no-repeat top center fixed;
-  color: #353535;
+.sbilinks{padding: 0px}
+
+.sbilinks ul{margin: 0px auto;} 
+
+.sbilinks li 
+{ margin: 0px; 
+  float: left; 
+  list-style: none; 
+} 
+
+.sbilinks li a , .sbilinks li a:hover
+{ float: left; 
+  height: 16px;
+  text-decoration: none; 
+  padding: 5px 0px 4px 19px;
+  width: 149px;
+} 
+
+/* column 2 - page content */
+#column2
+{ text-align: justify;
+  width: 508px;
+  float: left;
+  padding: 2px 3px 15px 19px;
 }
 
-body,input {
-  font-family: Arial, sans-serif;
-}
-
-br.clear {
-  clear: both;
-}
-
-form {
-  margin: 0;
-  padding: 0;
-}
-
-h1,h2,h3,h4 {
-  text-transform: lowercase;
+#column2 h1
+{ font-family: arial, sans-serif;
+  padding: 16px 0px 5px 0px; 
+  margin: 0px 0px 12px 0px; 
+  border-bottom: 1px solid;
+  font-size: 150%;
+  text-transform: uppercase;
   font-weight: normal;
 }
 
-h2 {
-  font-size: 1.75em;
-}
-
-h2,h3,h4 {
-  margin-bottom: 1em;
-  font-family: "Patua One", serif;
-  color: #000;
-}
-
-h3 {
-  font-size: 1.5em;
-}
-
-h4 {
-  font-size: 1.25em;
-}
-
-img.left {
-  float: left;
-  margin: 8px 20px 20px 0;
-}
-
-img.top {
-  margin: 8px 0 20px 0;
-}
-
-label 
-{
-  display: block;
-  margin: 0 0 6px 0;
-  text-transform: capitalize;
-}
-
-p {
-  margin-bottom: 1.5em;
-}
-
-ul {
-  margin-bottom: 1.5em;
-}
-
-ul h4 {
-  margin-bottom: 0.35em;
-}
-
-.form input[type=text], .form input[type=password]
-{
-  width: 80%;
-}
-.form input[type=button]
-{
-  margin-right: 25px;
-}
-
-.form 
-{
-  margin: 0 0 24px 0;
-}
-
-input[type=text], input[type=password]
-{
-  padding: 6px;
-  border: dotted 1px #9e9ea0;
-}
-
-.inputButton {
-  padding: 6px;
-  
-}
-
-#box1 {
-  width: 812px;
-  overflow: hidden;
-  margin: 0 0 20px 0;
-}
-
-#box2 {
-  width: 396px;
-  overflow: hidden;
-  float: left;
-}
-
-#box3 {
-  width: 396px;
-  overflow: hidden;
-  margin: 0 0 0 416px;
-}
-
-#content {
-  width: 812px;
-  margin: 0 0 0 320px;
-  padding: 0;
-}
-
-#copyright {
-  margin: 0 0 36px 0;
-  padding: 40px 0 64px 0;
-  text-align: center;
-}
-
-#copyright a {
-  color: #353535;
-}
-
-#footer {
-  position: relative;
-  padding: 24px;
-  width: 1132px;
-  background: #727074 asset-url('bg02.gif', image) repeat-x top left;
-  color: #d8d7d8;
-  border-radius: 0 0 10px 10px;
-}
-
-#footer a {
-  color: #f5f5f5;
-}
-
-#footer h2, #footer h3, #footer h4 {
-  color: #fff;
-}
-
-#footer ul {
-  list-style: none;
-}
-
-#footer ul li {
-  padding: 8px 0 8px 0;
-  border-bottom: dotted 1px #fff;
-}
-
-#footer ul li.first {
-  padding-top: 0;
-  border-top: 0;
-}
-
-#footer ul li:last-child {
-  border: none;
-}
-
-#footerContent {
-  width: 812px;
-  margin: 0 0 0 320px;
-}
-
-#footerSidebar {
-  width: 300px;
-  float: left;
-}
-
-#header {
-  position: relative;
-  padding: 24px;
-  height: 130px;
-}
-
-#logo {
-  position: absolute;
-  top: 24px;
-  left: 24px;
-  height: 130px;
-  line-height: 130px;
-}
-
-#logo a {
+#column2 a, #column2 a:hover
+{ padding: 0px 0px 2px 0px;
   text-decoration: none;
-  color: #000;
+  border-bottom: 1px dashed;
 }
 
-#logo a span {
-  color: #718424;
+#column2 a:hover{border-bottom: 1px solid;}
+
+/* additional colour scheme selections */
+#colour{margin: 0px 0px 20px 0px;}
+
+#colour a, #colour a:hover{border: 0px;}
+
+.blue
+{ background: #414141 image-url('blue.png') no-repeat left center;
+  color: #109CEF;
+  padding: 0px 40px 0px 20px;
 }
 
-#logo h1 {
-  font-size: 2.75em;
-  font-family: "Patua One", serif;
+.green
+{ background: #414141 image-url('green.png') no-repeat left center;
+  color: #94C65A;
+  padding: 0px 40px 0px 20px;
+}
+
+.purple
+{ background: #414141 image-url('purple.png') no-repeat left center;
+  color: #CE5AEF;
+  padding: 0px 40px 0px 20px;
+}
+
+.orange
+{ background: #414141 image-url('orange.png') no-repeat left center;
+  color: #FF9C21;
+  padding: 0px 40px 0px 20px;
 }
 
 
-#main {
-  position: relative;
-  padding: 24px;
-  width: 1132px;
-  margin: 0 0 0 0;
-  background: #ffffff asset-url('bg03.gif', image) repeat-x top left;
-  color: #3b3b3b;
-  border-radius: 10px 10px 0 0;
+// Esto estaba en el blue.css
+body
+{ background: #FFF image-url('back.png') repeat;
+  color: #D5D2D6;
 }
 
-#main .sectionList {
-  list-style: none;
-  padding-left: 0;
+blockquote{border-color: #109CEF;}
+
+#main
+{ background: #414141 image-url('main.png') repeat-y;
+  color: #D5D2D6;
 }
 
-#main .sectionList li {
-  clear: both;
-  padding: 16px 0 16px 0;
+#links, #footer, #links a, #footer a, #links a:hover, #footer a:hover
+{ background: #545454;
+  color: #D5D2D6;
+  border-color: #109CEF;
 }
 
-#main h2, #main h3, #main h4 {
-  color: #1f1f1f;
+#logo
+{ background: #FFF image-url('logo.jpg') no-repeat;
+  color: #D5D2D6;
+  border-color: #109CEF;
 }
 
-#main strong {
-  color: #212121;
+h1, #column1 h1, #column2 h1
+{ background: transparent;
+  color: #109CEF;
+  border-color: #787878;
 }
 
-#main ul {
-  list-style: none;
+#menu
+{ background: transparent;
+  color: #D5D2D6;
 }
 
-#main ul li {
-  padding: 8px 0 8px 0;
-  border-top: dotted 1px #bfbfbf;
+#menu li a, .sidebaritem
+{ background: #545454;
+  color: #D5D2D6;
+  border-color: #787878;
 }
 
-#main ul li.first {
-  padding-top: 0;
-  border-top: 0;
+#menu li a:hover, #menu li a#selected, #menu li a#selected:hover
+{ background: #109CEF;
+  color: #FFF;
+} 
+
+#content, #column2, #column2 a
+{ background: #414141;
+  color: #D5D2D6;
+  border-color: #D5D2D6;
 }
 
-#nav {
-  position: absolute;
-  right: 24px;
-  height: 57px;
-  line-height: 57px;
-  top: 60px;
-  font-family: "Patua One", serif;
+#column2 a:hover
+{ background: #414141;
+  color: #109CEF;
+  border-color: #109CEF;
 }
 
-#nav a {
-  text-decoration: none;
-  text-transform: lowercase;
-  font-size: 1.25em;
-  color: #0d0d0d;
-}
+.sbilinks li a, .sidebaritem a
+{ background: #545454 image-url('cog.png') no-repeat left center;
+  color: #D5D2D6;
+} 
 
-#nav .active a {
-  color: #fff;
-  background: #718424;
-  padding: 6px;
-}
+.sbilinks li a:hover, .sidebaritem a:hover
+{ background: #545454 image-url('blue_cog.png') no-repeat left center;
+  color: #109CEF;
+} 
 
-#nav ul {
-  list-style: none;
-  padding: 0 12px 0 12px;
-}
-
-#nav ul li {
-  display: inline;
-  padding: 0 8px 0 8px;
-}
-
-#outer {
-  position: relative;
-  width: 1180px;
-  margin: 14px auto 0 auto;
-}
-
-.inputButton 
-{
-  border: 0;
-  color: #fff;
-  background: #718424;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-family: verdana, sans-serif, arial;
-  text-transform: lowercase;
-  -moz-border-radius:5px;  
-  border-radius: 5px;  
-  -webkit-border-radius: 5px;
-}
-
-#sidebar {
-  width: 300px;
-  float: left;
-  padding: 0;
-}
-
-td
-{
-  padding-right: 15px;
-  border-bottom: dotted 1px; 
-}
-
-th
-{
-  padding-right: 15px;
-  text-align: left;
-  padding-bottom: 5px;
-}
-td a
-{
-  text-decoration: none;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 2px;
-}
-td a:hover
-{
-  color: white;
-  background: #718424;  
-}
-
-a.agregar
-{
-  color: white;
-  background: #718424;  
-  text-decoration: none;  
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 2px;
-}
-
-a.agregar:hover
-{
-  background: #819434;
-}
-
-div.left
-{
-  float: left;
-  margin-right: 10px;
-}
-
+// Contenido custom
 .text-right
 {
-	text-align: right;
+  text-align: right;
 }
 
-.caps
+table
+{
+  text-align: left;
+  width: 100%;
+  float: left;
+  margin: 0px 0px 23px 0px;
+  border: 1px solid;
+  padding: 14px 8px 14px 19px;
+  background: #545454;
+  border-color: #787878;  
+}
+
+table thead
 {
   text-transform: uppercase;
 }
 
-legend
+table thead th
 {
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-bottom: 15px;  
 }
 
-fieldset
+table tbody td
 {
-  -moz-border-radius:5px;  
-  border-radius: 5px;  
-  -webkit-border-radius: 5px;
-  padding-left: 15px;
-  padding-top: 15px;
+  padding-bottom: 5px;
 }
 
-.tip
+#column2 table tbody tr td a, #column2 table tbody tr td a:hover
 {
-  font-style: italic;
-  color: gray;
+  background: #545454;
 }
