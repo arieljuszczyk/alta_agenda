@@ -405,7 +405,7 @@ fieldset legend
   text-transform: uppercase;
 }
 
-fieldset input[type=submit]
+input[type=submit]
 {
   cursor: pointer;
   color: #DDDDDD;
@@ -416,4 +416,34 @@ fieldset input[type=submit]
   text-transform: lowercase;
   font-weight: bold;
   padding-bottom: 5px;
+}
+
+label
+{
+  display: block;
+  float: left;
+  margin-right: 10px;
+  padding-top: 3px;
+}
+
+div.field
+{
+  margin-top: 10px;
+  border-bottom: solid 1px #D5D2D6;
+}
+
+input[type=text], input[type=password]
+{
+  color: #D5D2D6;
+  background: #414141;
+  border: 0px;
+  font-family: verdana, arial, sans-serif;
+  font-size: 11px;
+  outline: none;
+}
+
+div.actions
+{
+  float: left; 
+  margin-right: 10px;
 }

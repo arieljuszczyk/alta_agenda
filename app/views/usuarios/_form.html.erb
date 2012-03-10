@@ -11,38 +11,39 @@
     </div>
   <% end %>
 
-	<div class="left" style="width: 100%">
+	<div class="left" style="width: 100%; margin-bottom: 20px;">
 		<div class="left">
 			<div class="field">
 				<%= f.label t(:apellido), :class => 'login' %>
-				<%= f.text_field :apellido, :class => 'inputBox' %>
+				<%= f.text_field :apellido, :autocomplete => 'off' %>
 			</div>
 			<div class="field">
 				<%= f.label t(:nombre) %>
-				<%= f.text_field :nombre %>
+				<%= f.text_field :nombre, :autocomplete => 'off' %>
 			</div>
 			<div class="field">
 				<%= f.label t(:login) %>
-				<%= f.text_field :login %>
+				<%= f.text_field :login, :autocomplete => 'off' %>
 			</div>
 		</div>
 		<div class="left">
 	  		<div class="field">
 				<%= f.label t(:email) %>
-				<%= f.text_field :email %>
+				<%= f.text_field :email, :autocomplete => 'off' %>
 	  		</div>
 	  		<div class="field">
 				<%= f.label t(:clave) %>
-				<%= f.password_field :clave %>
+				<%= f.password_field :clave, :autocomplete => 'off' %>
 	  		</div>
 	  		<div class="field">
 				<%= f.label t(:clave_confirmation) %>
-				<%= f.password_field :clave_confirmation %>
+				<%= f.password_field :clave_confirmation, :autocomplete => 'off' %>
 	  		</div>
   		</div>
   	</div>
 
   	<div class="actions">
-    	<%= f.submit :value => t('grabar'), :class => 'inputButton' %>
+    	<%= f.submit :value => t('grabar') %>
   	</div>
+	
 <% end %>
