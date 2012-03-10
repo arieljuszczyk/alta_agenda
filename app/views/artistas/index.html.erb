@@ -1,23 +1,25 @@
-<h2><%= t 'titulo.artistas' %></h2>
 
-<table>
-  <tr>
-    <th><%= t 'nombre' %></th>
-    <th><%= t 'url' %></th>
-    <th colspan="3"></th>
-  </tr>
+	<h1><%= t 'titulo.artistas' %></h1>
 
-<% @artistas.each do |artista| %>
-  <tr>
-    <td><%= artista.nombre %></td>
-    <td><%= artista.url %></td>
-    <td><%= link_to t('ver'), artista %></td>
-    <td><%= link_to t('editar'), edit_artista_path(artista) %></td>
-    <td><%= link_to t('borrar'), artista, confirm: t('confirmacion_borrado'), method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+	<div id="colour" class="text-right">
+		<%= link_agregar new_artista_path, t('nuevo_artista') %>
+	</div>
 
-<br />
-
-<%= link_to t('nuevo_artista'), new_artista_path, :class => 'agregar' %>
+	<table>
+		<thead>
+		    <th><%= t 'nombre' %></th>
+		    <th><%= t 'url' %></th>
+		    <th colspan="3"></th>
+		</thead>
+		<tbody>
+			<% @artistas.each do |artista| %>
+			  <tr>
+			    <td><%= artista.nombre %></td>
+			    <td><%= artista.url %></td>
+			    <td><%= link_to t('ver'), artista %></td>
+			    <td><%= link_to t('editar'), edit_artista_path(artista) %></td>
+			    <td><%= link_to t('borrar'), artista, confirm: t('confirmacion_borrado'), method: :delete %></td>
+			  </tr>
+			<% end %>
+		</tbody>
+	</table>
