@@ -33,7 +33,7 @@
 					<%= t 'titulo.sincronizacion.lugares_nuevos' %>
 					<select id="lugares">
 						<% @lugares.each do |l| %>
-							<option value="<%= l.id %>"><%= l.nombre[0, 20] %></option>
+							<option value="<%= l.id %>"><%= l.nombre[0, 27] %><%= "(...)" unless l.nombre.length < 27 %></option>
 						<% end %>
 					</select>
 				</th>
