@@ -11,53 +11,55 @@
 	}
 </script>
 
-<form id="form_correccion" name="form_correccion" action="<%= importaciones_path %>/corregir_artista" method="post">
-	<input type="hidden" name="id_artista" />
-	<input type="hidden" name="nombre_artista" />
-</form>
+	<form id="form_correccion" name="form_correccion" action="<%= importaciones_path %>/corregir_artista" method="post">
+		<input type="hidden" name="id_artista" />
+		<input type="hidden" name="nombre_artista" />
+	</form>
 
-<h1><%= t 'titulo.sincronizacion.artistas' %></h1>
-<br/>
-<br/>
+	<h1><%= t 'titulo.sincronizacion.artistas' %></h1>
 
-<p>
-	<span class="tip"><%= t 'mensajes.tip_artistas_nuevos_import' %></span>
-</p>
+	<blockquote>
+		<p><%= t 'mensajes.tip_artistas_nuevos_import' %></p>
+	</blockquote>
 	
-<div class="left">	
-	<table>
-		<tr>
-			<th colspan="2">
-				<%= t 'titulo.sincronizacion.artistas_nuevos' %>
-				<select id="artistas">
-					<% @artistas.each do |a| %>
-						<option value="<%= a.id %>"><%= a.nombre %></option>
-					<% end %>
-				</select>
-			</th>
-		</tr>
-		<% @nuevos.each do |d| %>
-			<tr>
-				<td><%= d %></td>
-				<td><a href="javascript: corregir('<%= d %>');">Corregir</a></td>
-			</tr>
-		<% end %>
-	</table>
-</div>
+	<div id="colour" class="text-right">
+		<span class="blue"><a href="<%= importaciones_path + '/lugares' %>"><%= t 'siguiente' %></a></span>
+	</div>
 
-<div class="left">
-	<table>
-		<tr>
-			<th><%= t 'titulo.sincronizacion.artistas_existentes' %></th>
-		</tr>
-		<% @existentes.each do |d| %>
-			<tr>
-				<td><%= d %></td>
-			</tr>	
-		<% end %>
-	</table>
-</div>
+	<div class="left" style="width: 58%">	
+		<table>
+			<thead>
+				<th colspan="2">
+					<%= t 'titulo.sincronizacion.artistas_nuevos' %>
+					<select id="artistas">
+						<% @artistas.each do |a| %>
+							<option value="<%= a.id %>"><%= a.nombre %></option>
+						<% end %>
+					</select>
+				</th>
+			</thead>
+			<tbody>
+				<% @nuevos.each do |d| %>
+					<tr>
+						<td><%= d %></td>
+						<td><a href="javascript: corregir('<%= d %>');">Corregir</a></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
 
-<div class="text-right">
-	<%= link_to t('siguiente'), importaciones_path + '/lugares', :class => 'inputButton' %>
-</div>
+	<div class="left" style="width: 37%">
+		<table>
+			<thead>
+				<th><%= t 'titulo.sincronizacion.artistas_existentes' %></th>
+			</thead>
+			<tbody>
+				<% @existentes.each do |d| %>
+					<tr>
+						<td><%= d %></td>
+					</tr>	
+				<% end %>
+			</tbody>
+		</table>
+	</div>
