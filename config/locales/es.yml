@@ -4,7 +4,8 @@ es:
     artistas: Listado de artistas
     usuarios: Listado de usuarios
     eventos: Listado de eventos
-    importar: Importar información
+    importar: Importación
+    nueva_importacion: Ingresar nueva información al sistema
     sincronizacion:
       artistas: Sincronización de artistas
       artistas_nuevos: Artistas nuevos
@@ -16,6 +17,7 @@ es:
 
   # Etiquetas genéricas
   apellido: apellido
+  archivo_impo: Archivo a importar
   artista: artista
   borrar: borrar
   clave: password

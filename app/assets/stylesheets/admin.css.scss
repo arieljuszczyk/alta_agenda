@@ -388,3 +388,32 @@ table tbody td
 {
   background: #545454;
 }
+
+fieldset
+{
+  margin: 0px 0px 23px 0px;
+  border: 1px solid;
+  padding: 14px 8px 14px 19px;
+  background: #545454;
+  border-color: #787878;  
+}
+
+fieldset legend
+{
+  padding-left: 5px;
+  padding-right: 5px;
+  text-transform: uppercase;
+}
+
+fieldset input[type=submit]
+{
+  cursor: pointer;
+  color: #DDDDDD;
+  margin: 0px 0px 23px 0px;
+  border: 1px solid;
+  background: #747474;
+  border-color: #787878;  
+  text-transform: lowercase;
+  font-weight: bold;
+  padding-bottom: 5px;
+}

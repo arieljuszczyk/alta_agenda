@@ -3,16 +3,20 @@
 <br/>
 
 <%= form_tag('/importaciones', :multipart => true, 'accept-charset' => "ISO-8859-1") do %>
-	<fieldset style="width: 500px">
-		<legend><%= t 'titulo.importar' %></legend>
+	<fieldset>
+		<legend><%= t 'titulo.nueva_importacion' %></legend>
+
+       	<blockquote>
+          <p><%= t 'mensajes.tip_carga_archivo_import' %></p>
+        </blockquote>
+
 		<div class="field">
+			<label for="archivo"><%= t 'archivo_impo' %></label>
 			<%= file_field_tag 'archivo' %>
 		</div>
-		<div class="field">
-			<span class="tip"><%= t 'mensajes.tip_carga_archivo_import' %></span>
-		</div>
+		<br/>
 		<div class="actions">
-			<%= submit_tag(t('procesar'), :class => 'inputButton') %>
+			<%= submit_tag t('procesar') %>
 		</div>  
 	</fieldset>
 <% end %>
