@@ -1,5 +1,7 @@
 AltaAgenda::Application.routes.draw do
   
+  resources :barrios
+
   root :to => 'home#index'
 
   resources :sessions, only: [:new, :create, :destroy]
