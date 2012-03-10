@@ -1,31 +1,27 @@
-<h2><%=t 'titulo.lugares' %></h2>
 
-<table>
-  <tr>
-    <th><%= t :nombre %></th>
-    <th><%= t :direccion %></th>
-    <th><%= t :url %></th>
-    <th><%= t :barrio %></th>
-    <th><%= t :telefono %></th>
-    <th><%= t :mail %></th>
-    <th colspan="3"></th>
-  </tr>
+	<h1><%=t 'titulo.lugares' %></h1>
 
-<% @lugares.each do |lugar| %>
-  <tr>
-    <td><%= lugar.nombre %></td>
-    <td><%= lugar.direccion %></td>
-    <td><%= lugar.url %></td>
-    <td><%= lugar.barrio %></td>
-    <td><%= lugar.telefono %></td>
-    <td><%= lugar.mail %></td>
-    <td><%= link_to t('ver'), lugar %></td>
-    <td><%= link_to t('editar'), edit_lugar_path(lugar) %></td>
-    <td><%= link_to t('borrar'), lugar, confirm: t('confirmacion_borrado'), method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+	<div id="colour" class="text-right">
+		<%= link_agregar new_lugar_path, t('nuevo_lugar') %>
+	</div>
 
-<br />
-
-<%= link_to t('nuevo_lugar'), new_lugar_path, :class => 'agregar' %>
+	<table>
+		<thead>
+			<th><%= t :nombre %></th>
+			<th><%= t :direccion %></th>
+			<th><%= t :barrio %></th>
+			<th colspan="3"></th>
+		</thead>
+		<tbody>
+			<% @lugares.each do |lugar| %>
+			  <tr>
+			    <td><%= lugar.nombre %></td>
+			    <td><%= lugar.direccion %></td>
+			    <td><%= lugar.barrio %></td>
+			    <td><%= link_to t('ver'), lugar %></td>
+			    <td><%= link_to t('editar'), edit_lugar_path(lugar) %></td>
+			    <td><%= link_to t('borrar'), lugar, confirm: t('confirmacion_borrado'), method: :delete %></td>
+			  </tr>
+			<% end %>
+		</tbody>
+	</table>
