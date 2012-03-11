@@ -1,4 +1,4 @@
-<%= form_for(@lugar) do |f| %>
+<%= form_for(@lugar, :style => 'margin-bottom: 20px;') do |f| %>
   <% if @lugar.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@lugar.errors.count, "error") %> prohibited this lugar from being saved:</h2>
@@ -11,31 +11,39 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nombre %>
-    <%= f.text_field :nombre %>
+  <div class="left" style="width: 100%; margin-bottom: 20px;">
+	<div class="left">
+	  <div class="field">
+		<%= f.label :nombre %>
+		<%= f.text_field :nombre %>
+	  </div>
+	  <div class="field">
+		<%= f.label :direccion %>
+		<%= f.text_field :direccion %>
+	  </div>
+	  <div class="field">
+		<%= f.label :url %>
+		<%= f.text_field :url %>
+	  </div>
+	</div>
+	<div class="left">
+	  <div class="field">
+		<%= f.label :barrio %>
+		<%= f.text_field :barrio %>
+	  </div>
+	  <div class="field">
+		<%= f.label :mail %>
+		<%= f.text_field :mail %>
+	  </div>
+	  <div class="field">
+		<%= f.label :telefono %>
+		<%= f.text_field :telefono %>
+	  </div>
+	</div>
   </div>
-  <div class="field">
-    <%= f.label :direccion %>
-    <%= f.text_field :direccion %>
-  </div>
-  <div class="field">
-    <%= f.label :url %>
-    <%= f.text_field :url %>
-  </div>
-  <div class="field">
-    <%= f.label :barrio %>
-    <%= f.text_field :barrio %>
-  </div>
-  <div class="field">
-    <%= f.label :mail %>
-    <%= f.text_field :mail %>
-  </div>
-  <div class="field">
-    <%= f.label :telefono %>
-    <%= f.text_field :telefono %>
-  </div>
+  
   <div class="actions">
-    <%= f.submit :value => t('grabar'), :class => 'inputButton' %>
+	<%= f.submit :value => t('grabar'), :class => 'inputButton' %>
   </div>
+	 
 <% end %>
