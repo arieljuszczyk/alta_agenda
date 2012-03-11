@@ -10,24 +10,25 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.label :artista %>
-    <%= collection_select(:evento, :artista_id, Artista.all, :id, :nombre, :prompt => true )%>
-  </div>
-  <div class="field">
-    <%= f.label :lugar %>
-    <%= collection_select(:evento, :lugar_id, Lugar.all, :id, :nombre, :prompt => true )%>
-  </div>
-        
-  <div class="field">
-    <%= f.label :fecha %>           
-    <%= f.text_field :fecha %>   
-  </div>
   
-  <div class="field">
-    <%= f.label :hora %>           
-    <%= f.text_field :time %>   
-  </div>
+  <div style="width: 50%; margin-bottom: 20px;">
+	  <div class="field">
+		<%= f.label :artista %>
+		<%= collection_select(:evento, :artista_id, Artista.all, :id, :nombre, :prompt => true )%>
+	  </div>
+	  <div class="field">
+		<%= f.label :lugar %>
+		<%= collection_select(:evento, :lugar_id, Lugar.all, :id, :nombre, :prompt => true )%>
+	  </div>        
+	  <div class="field">
+		<%= f.label :fecha %>           
+		<%= f.text_field :fecha %>   
+	  </div>
+	  <div class="field">
+		<%= f.label :hora %>           
+		<%= f.text_field :time %>   
+	  </div>
+	</div>
   
     <div class="actions">
     <%= f.submit :value => t('grabar'), :class => 'inputButton' %>
