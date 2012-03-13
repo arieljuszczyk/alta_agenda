@@ -7,6 +7,7 @@ es:
     importar: Importación
     nueva_importacion: Ingresar nueva información al sistema
     ultimos_importados: Últimos registros importados
+    tareas_importacion: Tareas de importación
     sincronizacion:
       artistas: Sincronización de artistas
       artistas_nuevos: Artistas nuevos
@@ -21,6 +22,7 @@ es:
   archivo_impo: Archivo a importar
   artista: artista
   borrar: borrar
+  borrar_importados: Borrar eventos ya importados
   clave: password
   clave_confirmation: confirmación
   datos_usuario: Datos del usuario
@@ -51,6 +53,7 @@ es:
     tip_carga_archivo_import: El archivo es opcional, si no subís nada, se procesarán los datos pendientes de la base.
     tip_items_nuevos_import: Si algún ítem es incorrecto, seleccioná el correcto de este combo y hacé click en 'Corregir'. Los existentes se ingresarán tal cual están.
     sincro_eventos: Esta es la información que efectivamente se importará al sistema. Eliminá los que no deban importarse.
+    registros_borrados: Los registros han sido eliminados
     
   activerecord:
     errors:

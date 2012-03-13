@@ -21,9 +21,13 @@
 	</fieldset>
 <% end %>
 
-<br/>
+	<h1><%= t 'titulo.tareas_importacion' %></h1>
 
-<h1><%= t 'titulo.ultimos_importados' %></h1>
+	<div id="colour" class="text-right">
+		<span class="blue"><a href="<%= importaciones_path + '/borrar_importados' %>"><%= t 'borrar_importados' %></a></span>
+	</div>
+
+	<h1><%= t 'titulo.ultimos_importados' %></h1>
 
 <table>
 		<thead>

@@ -45,6 +45,13 @@ class ImportacionesController < AdminController
 
     render 'eventos'
   end
+
+  def borrar_importados
+    DatoImportado.delete_all(:importado => true)
+    flash[:notice] = t('mensajes.registros_borrados')
+    
+    render 'new'
+  end
   
   def corregir_artista
   	artista = Artista.find(params[:id_artista])
