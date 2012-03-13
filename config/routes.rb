@@ -26,6 +26,7 @@ AltaAgenda::Application.routes.draw do
   match '/importaciones/eventos', to: 'importaciones#eventos'
   match '/importaciones/importar', to: 'importaciones#importar'
   match '/importaciones/borrar_importados', to: 'importaciones#borrar_importados'
+  match '/importaciones/borrar_todos', to: 'importaciones#borrar_todos'
   
   match '/home/filtrar/:id_fecha', to: 'home#index'
   

@@ -23,6 +23,7 @@ es:
   artista: artista
   borrar: borrar
   borrar_importados: Borrar eventos ya importados
+  borrar_todos: Vaciar la tabla de importación
   clave: password
   clave_confirmation: confirmación
   datos_usuario: Datos del usuario

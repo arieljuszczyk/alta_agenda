@@ -46,6 +46,13 @@ class ImportacionesController < AdminController
     render 'eventos'
   end
 
+  def borrar_todos
+    DatoImportado.delete_all
+    flash[:notice] = t('mensajes.registros_borrados')
+    
+    render 'new'  
+  end
+  
   def borrar_importados
     DatoImportado.delete_all(:importado => true)
     flash[:notice] = t('mensajes.registros_borrados')
