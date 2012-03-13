@@ -122,7 +122,7 @@ class ImportacionesController < AdminController
 	    d.save
     end
     
-    render 'new'
+    redirect_to new_importacion_path 
   end
   
 private
