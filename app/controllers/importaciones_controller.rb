@@ -1,7 +1,8 @@
 class ImportacionesController < AdminController
   
   def new
-    
+    fecha_ultima = Evento.maximum(:fecha_importado)
+    @ultimos = Evento.where(:fecha_importado => fecha_ultima) unless fecha_ultima.nil?
   end
   
   def create
@@ -86,9 +87,10 @@ class ImportacionesController < AdminController
       unless Artista.exists?(:nombre => d.artista)
         artista = Artista.new
         artista.nombre = d.artista
-        artista.save
-	  else
-	    artista = Artista.find_by_nombre(d.artista)
+        artista.url = '-'
+        artista.save!
+      else
+        artista = Artista.find_by_nombre(d.artista)
       end
       
       # Si hace falta, insertar un nuevo lugar
@@ -101,20 +103,23 @@ class ImportacionesController < AdminController
     		lugar.mail = d.mail1
     		lugar.telefono = d.telefono1
     		lugar.save
-	  else
-	    lugar = Lugar.find_by_nombre(d.lugar)
+      else
+        lugar = Lugar.find_by_nombre(d.lugar)
       end
       
-      # Y, por �ltimo, el evento
+      # Y, por ultimo, el evento
       evento = Evento.new
       evento.artista = artista
       evento.lugar = lugar
       evento.fecha = d.fecha
-      evento.save
+      evento.hora = d.horario
+      evento.nombre = d.nombre_evento
+      evento.fecha_importado = Date.today      
+      evento.save!
 	  
-	  # ¡Y marcar el dato como importado!
-	  d.importado = true
-	  d.save
+      # ¡Y marcar el dato como importado!
+	    d.importado = true
+	    d.save
     end
     
     render 'new'

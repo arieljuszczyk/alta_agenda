@@ -6,6 +6,7 @@ es:
     eventos: Listado de eventos
     importar: Importación
     nueva_importacion: Ingresar nueva información al sistema
+    ultimos_importados: Últimos registros importados
     sincronizacion:
       artistas: Sincronización de artistas
       artistas_nuevos: Artistas nuevos

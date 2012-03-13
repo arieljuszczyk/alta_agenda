@@ -20,3 +20,28 @@
 		</div>  
 	</fieldset>
 <% end %>
+
+<br/>
+
+<h1><%= t 'titulo.ultimos_importados' %></h1>
+
+<table>
+		<thead>
+			<th><%= t 'nombre' %></th>
+			<th><%= t 'lugar' %></th>
+			<th><%= t 'artista' %></th>
+			<th><%= t 'fecha' %></th>
+			<th><%= t 'hora' %></th>
+		</thead>
+		<tbody>
+			<% @ultimos.each do |e| %>
+				<tr>
+					<td><%= e.nombre %></td>
+					<td><%= link_to e.lugar.nombre, lugar_path(e.lugar) %></td>
+					<td><%= link_to e.artista.nombre, artista_path(e.artista) %></td>
+					<td nowrap><%= e.fecha.strftime("%d-%b-%Y") %></td>
+					<td><%= e.hora.strftime("%H:%M") %></td>
+				</tr>
+			<% end unless @ultimos.nil? %>
+		</tbody>
+</table>
