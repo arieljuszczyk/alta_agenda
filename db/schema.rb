@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120316225123) do
+ActiveRecord::Schema.define(:version => 20120317000318) do
 
   create_table "artistas", :force => true do |t|
     t.string   "nombre"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(:version => 20120316225123) do
     t.datetime "updated_at", :null => false
     t.string   "mail"
     t.string   "telefono"
-    t.string   "barrio"
+    t.integer  "zona_Id"
   end
 
   create_table "usuarios", :force => true do |t|

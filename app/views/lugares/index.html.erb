@@ -8,16 +8,14 @@
 	<table>
 		<thead>
 			<th><%= t :nombre %></th>
-			<th><%= t :direccion %></th>
-			<th><%= t :barrio %></th>
+			<th><%= t :direccion %></th>			
 			<th colspan="3"></th>
 		</thead>
 		<tbody>
 			<% @lugares.each do |lugar| %>
 			  <tr>
 			    <td><%= lugar.nombre %></td>
-			    <td><%= lugar.direccion %></td>
-			    <td><%= lugar.barrio %></td>
+			    <td><%= lugar.direccion %></td>			    
 			    <td><%= link_to t('ver'), lugar %></td>
 			    <td><%= link_to t('editar'), edit_lugar_path(lugar) %></td>
 			    <td><%= link_to t('borrar'), lugar, confirm: t('confirmacion_borrado'), method: :delete %></td>
