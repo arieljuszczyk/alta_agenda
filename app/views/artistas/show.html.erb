@@ -10,6 +10,7 @@
   <%= @artista.url %>
 </p>
 
-
-<%= link_to t('editar'), edit_artista_path(@artista) %> |
-<%= link_to t('volver'), artistas_path %>
+	<div class="form-actions">
+		<%= link_to t('editar').capitalize, edit_artista_path(@artista), :class => 'btn' %>
+		<%= link_to t('volver').capitalize, artistas_path, :class => 'btn' %>
+	</div>

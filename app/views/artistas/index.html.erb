@@ -1,11 +1,7 @@
 
-	<h1><%= t 'titulo.artistas' %></h1>
+	<legend><%= t 'titulo.artistas' %></legend>
 
-	<div id="colour" class="text-right">
-		<%= link_agregar new_artista_path, t('nuevo_artista') %>
-	</div>
-
-	<table>
+	<table class="table table-bordered table-striped">
 		<thead>
 		    <th><%= t 'nombre' %></th>
 		    <th><%= t 'url' %></th>
@@ -23,3 +19,7 @@
 			<% end %>
 		</tbody>
 	</table>
+	
+	<div class="form-actions">
+		<%= link_agregar new_artista_path, t('nuevo_artista') %>
+	</div>
