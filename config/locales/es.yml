@@ -8,6 +8,7 @@ es:
     nueva_importacion: Ingresar nueva información al sistema
     ultimos_importados: Últimos registros importados
     tareas_importacion: Tareas de importación
+    edicion_lugar: Editando lugar
     sincronizacion:
       artistas: Sincronización de artistas
       artistas_nuevos: Artistas nuevos

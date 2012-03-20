@@ -1,11 +1,7 @@
 
-	<h1><%=t 'titulo.lugares' %></h1>
+	<legend><%=t 'titulo.lugares' %></legend>
 
-	<div id="colour" class="text-right">
-		<%= link_agregar new_lugar_path, t('nuevo_lugar') %>
-	</div>
-
-	<table>
+	<table class="table table-bordered table-striped">
 		<thead>
 			<th><%= t :nombre %></th>
 			<th><%= t :direccion %></th>			
@@ -23,3 +19,7 @@
 			<% end %>
 		</tbody>
 	</table>
+	
+	<div class="form-actions">
+		<%= link_agregar new_lugar_path, t('nuevo_lugar') %>
+	</div>
