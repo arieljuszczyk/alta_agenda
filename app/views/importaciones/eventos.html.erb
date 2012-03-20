@@ -1,15 +1,11 @@
 
-	<h1><%= t 'titulo.sincronizacion.eventos' %></h1>
+	<legend><%= t 'titulo.sincronizacion.eventos' %></legend>
 
 	<blockquote>
-		<p><%= t 'mensajes.sincro_eventos' %></p>
+		<small><%= t 'mensajes.sincro_eventos' %></small>
 	</blockquote>
-
-	<div id="colour" class="text-right">
-		<span class="blue"><a href="<%= importaciones_path + '/importar' %>"><%= t 'importar' %></a></span>
-	</div>
 	
-	<table>
+	<table class="table table-bordered table-condensed table-striped">
 		<thead>
 			<th><%= t 'nombre' %></th>
 			<th><%= t 'lugar' %></th>
@@ -31,3 +27,7 @@
 			<% end %>
 		</tbody>
 	</table>
+	
+	<div class="form-actions">
+		<a class="btn btn-primary" href="<%= importaciones_path + '/importar' %>"><%= t('importar').upcase %></a>
+	</div>

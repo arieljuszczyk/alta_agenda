@@ -16,50 +16,54 @@
 		<input type="hidden" name="nombre_artista" />
 	</form>
 
-	<h1><%= t 'titulo.sincronizacion.artistas' %></h1>
+	<legend><%= t 'titulo.sincronizacion.artistas' %></legend>
 
 	<blockquote>
-		<p><%= t 'mensajes.tip_items_nuevos_import' %></p>
+		<small><%= t 'mensajes.tip_items_nuevos_import' %></small>
 	</blockquote>
 	
-	<div id="colour" class="text-right">
-		<span class="blue"><a href="<%= importaciones_path + '/lugares' %>"><%= t 'siguiente' %></a></span>
+	<div class="row">
+		
+		<div class="span5">	
+			<table class="table table-bordered table-striped table-condensed">
+				<thead>
+					<th colspan="2">
+						<%= t 'titulo.sincronizacion.artistas_nuevos' %>
+						<select id="artistas">
+							<% @artistas.each do |a| %>
+								<option value="<%= a.id %>"><%= a.nombre %></option>
+							<% end %>
+						</select>
+					</th>
+				</thead>
+				<tbody>
+					<% @nuevos.each do |d| %>
+						<tr>
+							<td><%= d %></td>
+							<td><a href="javascript: corregir('<%= d %>');">Corregir</a></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="span4">
+			<table class="table table-bordered table-striped table-condensed">
+				<thead>
+					<th><%= t 'titulo.sincronizacion.artistas_existentes' %></th>
+				</thead>
+				<tbody>
+					<% @existentes.each do |d| %>
+						<tr>
+							<td><%= d %></td>
+						</tr>	
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+	<div class="form-actions">
+		<a class="btn btn-primary" href="<%= importaciones_path + '/lugares' %>"><%= t 'siguiente' %></a>
 	</div>
 
-	<div class="left" style="width: 58%">	
-		<table>
-			<thead>
-				<th colspan="2">
-					<%= t 'titulo.sincronizacion.artistas_nuevos' %>
-					<select id="artistas">
-						<% @artistas.each do |a| %>
-							<option value="<%= a.id %>"><%= a.nombre %></option>
-						<% end %>
-					</select>
-				</th>
-			</thead>
-			<tbody>
-				<% @nuevos.each do |d| %>
-					<tr>
-						<td><%= d %></td>
-						<td><a href="javascript: corregir('<%= d %>');">Corregir</a></td>
-					</tr>
-				<% end %>
-			</tbody>
-		</table>
-	</div>
-
-	<div class="left" style="width: 37%">
-		<table>
-			<thead>
-				<th><%= t 'titulo.sincronizacion.artistas_existentes' %></th>
-			</thead>
-			<tbody>
-				<% @existentes.each do |d| %>
-					<tr>
-						<td><%= d %></td>
-					</tr>	
-				<% end %>
-			</tbody>
-		</table>
-	</div>
