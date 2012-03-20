@@ -1,49 +1,50 @@
-<%= form_for(@usuario) do |f| %>
-  <% if @usuario.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
 
-      <ul>
-      <% @usuario.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+	<%= form_for(@usuario, :html => {:class => 'form-horizontal'}) do |f| %>
+  		<% if @usuario.errors.any? %>
+    		<div id="error_explanation">
+      			<h2><%= pluralize(@usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+      			<ul>
+      				<% @usuario.errors.full_messages.each do |msg| %>
+        				<li><%= msg %></li>
+      				<% end %>
+      			</ul>
+    		</div>
+  		<% end %>
 
-	<div class="left" style="width: 100%; margin-bottom: 20px;">
-		<div class="left">
-			<div class="field">
-				<%= f.label t(:apellido), :class => 'login' %>
-				<%= f.text_field :apellido, :autocomplete => 'off' %>
+		<div class="row">
+			<div class="span4">
+				<div class="control-group">
+					<%= f.label t(:apellido), :class => 'control-label' %>
+					<div class="controls"><%= f.text_field :apellido, :autocomplete => 'off' %></div>
+				</div>
+				<div class="control-group">
+					<%= f.label t(:nombre), :class => 'control-label' %>
+					<div class="controls"><%= f.text_field :nombre, :autocomplete => 'off' %></div>
+				</div>
+				<div class="control-group">
+					<%= f.label t(:login), :class => 'control-label' %>
+					<div class="controls"><%= f.text_field :login, :autocomplete => 'off' %></div>
+				</div>
 			</div>
-			<div class="field">
-				<%= f.label t(:nombre) %>
-				<%= f.text_field :nombre, :autocomplete => 'off' %>
-			</div>
-			<div class="field">
-				<%= f.label t(:login) %>
-				<%= f.text_field :login, :autocomplete => 'off' %>
-			</div>
-		</div>
-		<div class="left">
-	  		<div class="field">
-				<%= f.label t(:email) %>
-				<%= f.text_field :email, :autocomplete => 'off' %>
+			<div class="span4">
+		  		<div class="control-group">
+					<%= f.label t(:email), :class => 'control-label' %>
+					<div class="controls"><%= f.text_field :email, :autocomplete => 'off' %></div>
+		  		</div>
+		  		<div class="control-group">
+					<%= f.label t(:clave), :class => 'control-label' %>
+					<div class="controls"><%= f.password_field :clave, :autocomplete => 'off' %></div>
+		  		</div>
+		  		<div class="control-group">
+					<%= f.label t(:clave_confirmation), :class => 'control-label' %>
+					<div class="controls"><%= f.password_field :clave_confirmation, :autocomplete => 'off' %></div>
+		  		</div>
 	  		</div>
-	  		<div class="field">
-				<%= f.label t(:clave) %>
-				<%= f.password_field :clave, :autocomplete => 'off' %>
-	  		</div>
-	  		<div class="field">
-				<%= f.label t(:clave_confirmation) %>
-				<%= f.password_field :clave_confirmation, :autocomplete => 'off' %>
-	  		</div>
+	  	</div>
+
+  		<div class="form-actions">
+    		<%= f.submit :value => t('grabar').capitalize, :class => 'btn btn-primary' %>
+    		<%= link_to 'Volver', usuarios_path, :class => 'btn' %>
   		</div>
-  	</div>
-
-  	<div class="actions">
-    	<%= f.submit :value => t('grabar') %>
-  	</div>
 	
 <% end %>
