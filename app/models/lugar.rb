@@ -8,13 +8,14 @@
 #  url        :string(255)
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
-#  barrio     :string(255)
 #  mail       :string(255)
 #  telefono   :string(255)
+#  barrio_id  :integer
 #
 
 class Lugar < ActiveRecord::Base
   has_many :eventos  
+  belongs_to :barrio
   
-  validates :nombre, :direccion, :url, :zona_id, :mail, :telefono, :presence => { :message => "es un campo requerido. Por favor completar." }
+  validates :nombre, :direccion, :url, :mail, :telefono, :presence => { :message => "es un campo requerido. Por favor completar." }
 end

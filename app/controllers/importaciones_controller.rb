@@ -82,10 +82,27 @@ class ImportacionesController < AdminController
   	  render 'lugares'
   end
   
+  def corregir_barrio
+	barrio = Barrio.find(params[:id_barrio])
+	nombre_incorrecto = params[:nombre_barrio]
+	
+	DatoImportado.update_all "barrio1 = '#{barrio.nombre}'", "barrio1 = '#{nombre_incorrecto}' and importado = 'f'"
+	
+	cargar_datos_barrios
+	
+	render 'barrios'
+  end
+  
   def lugares
   	  cargar_datos_lugares
 
   	  render 'lugares'	  
+  end
+  
+  def barrios
+	cargar_datos_barrios
+	
+	render 'barrios'
   end
   
   def eventos
@@ -107,15 +124,24 @@ class ImportacionesController < AdminController
         artista = Artista.find_by_nombre(d.artista)
       end
       
+	  # Si hace falta, insertar un nuevo barrio
+	  unless Barrio.exists?(:nombre => d.barrio1)
+		barrio = Barrio.new
+		barrio.nombre = d.barrio1
+		barrio.save
+	  else
+		barrio = Barrio.find_by_nombre(d.barrio1)
+	  end
+	  
       # Si hace falta, insertar un nuevo lugar
       unless Lugar.exists?(:nombre => d.lugar)
         lugar = Lugar.new
     		lugar.nombre = d.lugar
     		lugar.direccion = d.direccion1
     		lugar.url = d.web1
-    		lugar.barrio = d.barrio1
     		lugar.mail = d.mail1
     		lugar.telefono = d.telefono1
+			lugar.barrio = barrio
     		lugar.save
       else
         lugar = Lugar.find_by_nombre(d.lugar)
@@ -140,6 +166,23 @@ class ImportacionesController < AdminController
   end
   
 private
+	def cargar_datos_barrios
+		barrios = DatoImportado.order(:barrio1).where(:importado => false)
+		
+		@barrios = Barrio.all
+		
+		@existentes = Array.new
+		@nuevos = Array.new
+		
+		barrios.each do |b|
+			if Barrio.exists?(:nombre => b.barrio1)
+				@existentes << b.barrio1 unless @existentes.include?(b.barrio1)			
+			else
+				@nuevos << b.barrio1 unless @nuevos.include?(b.barrio1)
+			end
+		end
+	end
+
 	def cargar_datos_lugares
 		lugares = DatoImportado.order(:lugar).where(:importado => false)
 		

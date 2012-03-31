@@ -1,22 +1,22 @@
 <script>
-	function corregir(nombre_lugar)
+	function corregir(nombre_barrio)
 	{
-		combo = document.getElementById('lugares');
-		id_lugar = combo.options[combo.selectedIndex].value;
+		combo = document.getElementById('barrios');
+		id_barrio = combo.options[combo.selectedIndex].value;
 		
 		form = document.getElementById('form_correccion');
-		form.elements['id_lugar'].value = id_lugar;
-		form.elements['nombre_lugar'].value = nombre_lugar;
+		form.elements['id_barrio'].value = id_barrio;
+		form.elements['nombre_barrio'].value = nombre_barrio;
 		form.submit(); 
 	}
 </script>
 
-	<form id="form_correccion" name="form_correccion" action="<%= importaciones_path %>/corregir_lugar" method="post">
-		<input type="hidden" name="id_lugar" />
-		<input type="hidden" name="nombre_lugar" />
+	<form id="form_correccion" name="form_correccion" action="<%= importaciones_path %>/corregir_barrio" method="post">
+		<input type="hidden" name="id_barrio" />
+		<input type="hidden" name="nombre_barrio" />
 	</form>
 
-	<legend><%= t 'titulo.sincronizacion.lugares' %></legend>
+	<legend><%= t 'titulo.sincronizacion.barrios' %></legend>
 
 	<blockquote>
 		<small><%= t 'mensajes.tip_items_nuevos_import' %></small>
@@ -28,10 +28,10 @@
 			<table class="table table-bordered table-condensed table-striped">
 				<thead>
 					<th>
-						<%= t 'titulo.sincronizacion.lugares_nuevos' %>
-						<select id="lugares">
-							<% @lugares.each do |l| %>
-								<option value="<%= l.id %>"><%= l.nombre[0, 27] %><%= "(...)" unless l.nombre.length < 27 %></option>
+						<%= t 'titulo.sincronizacion.barrios_nuevos' %>
+						<select id="barrios">
+							<% @barrios.each do |b| %>
+								<option value="<%= b.id %>"><%= b.nombre[0, 27] %><%= "(...)" unless b.nombre.length < 27 %></option>
 							<% end %>
 						</select>
 					</th>
@@ -51,7 +51,7 @@
 			
 			<table class="table table-bordered table-condensed table-striped">
 				<thead>
-					<th><%= t 'titulo.sincronizacion.lugares_existentes' %></th>
+					<th><%= t 'titulo.sincronizacion.barrios_existentes' %></th>
 				</thead>
 				<tbody>
 					<% @existentes.each do |d| %>
@@ -66,5 +66,5 @@
 	</div>
 	
 	<div class="form-actions">
-		<a class="btn btn-primary" href="<%= importaciones_path + '/barrios' %>"><%= t 'siguiente' %></a>
+		<a class="btn btn-primary" href="<%= importaciones_path + '/eventos' %>"><%= t 'siguiente' %></a>
 	</div>
