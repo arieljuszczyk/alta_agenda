@@ -50,6 +50,7 @@ es:
   
   # Mensajes
   confirmacion_borrado: ¿Está seguro?
+  conf_borrado_cascada: Si borrás este item se borrarán sus eventos asociados... ¿Estás seguro?
   login_invalido: e-mail o contraseña inválidos
   mensajes:
     tip_carga_archivo_import: El archivo es opcional, si no subís nada, se procesarán los datos pendientes de la base.

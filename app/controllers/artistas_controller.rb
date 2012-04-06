@@ -73,6 +73,12 @@ class ArtistasController < AdminController
   # DELETE /artistas/1.json
   def destroy
     @artista = Artista.find(params[:id])
+    
+    # Borrar los eventos asociados
+    @artista.eventos.each do |e|
+      e.destroy
+    end
+    
     @artista.destroy
 
     respond_to do |format|

@@ -74,6 +74,12 @@ class LugaresController < AdminController
   # DELETE /lugares/1.json
   def destroy
     @lugar = Lugar.find(params[:id])
+    
+    # Borrar los eventos asociados
+    @lugar.eventos.each do |e|
+      e.destroy
+    end
+    
     @lugar.destroy
 
     respond_to do |format|

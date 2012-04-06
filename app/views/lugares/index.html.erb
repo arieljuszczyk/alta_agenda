@@ -14,7 +14,7 @@
 			    <td><%= lugar.direccion %></td>			    
 			    <td><%= link_to t('ver'), lugar %></td>
 			    <td><%= link_to t('editar'), edit_lugar_path(lugar) %></td>
-			    <td><%= link_to t('borrar'), lugar, confirm: t('confirmacion_borrado'), method: :delete %></td>
+			    <td><%= link_to t('borrar'), lugar, confirm: t('conf_borrado_cascada'), method: :delete %></td>
 			  </tr>
 			<% end %>
 		</tbody>

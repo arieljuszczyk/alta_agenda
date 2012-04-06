@@ -44,8 +44,20 @@
 			<% @ultimos.each do |e| %>
 				<tr>
 					<td><%= e.nombre %></td>
-					<td><%= link_to e.lugar.nombre, lugar_path(e.lugar) %></td>
-					<td><%= link_to e.artista.nombre, artista_path(e.artista) %></td>
+					<td>
+						<% unless e.lugar.nil? %>
+							<%= link_to e.lugar.nombre, lugar_path(e.lugar) %>
+						<% else %>
+							-
+						<% end %>
+					</td>
+					<td>
+						<% unless e.artista.nil? %>
+							<%= link_to e.artista.nombre, artista_path(e.artista) %>
+						<% else %>
+							-
+						<% end %>
+					</td>
 					<td nowrap><%= e.fecha.strftime("%d-%b-%Y") %></td>
 					<td><%= e.hora.strftime("%H:%M") %></td>
 				</tr>
