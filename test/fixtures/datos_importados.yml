@@ -17,6 +17,7 @@
 #  updated_at    :datetime        not null
 #  importado     :boolean
 #  nombre_evento :string(255)
+#  duplicado     :boolean
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

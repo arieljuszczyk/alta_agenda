@@ -17,7 +17,11 @@
 #  updated_at    :datetime        not null
 #  importado     :boolean
 #  nombre_evento :string(255)
+#  duplicado     :boolean
 #
 
 class DatoImportado < ActiveRecord::Base
+  
+  
+  
 end

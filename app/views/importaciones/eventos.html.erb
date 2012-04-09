@@ -1,4 +1,6 @@
 
+	<%= stylesheet_link_tag    "importaciones", :media => "all" %>
+	
 	<legend><%= t 'titulo.sincronizacion.eventos' %></legend>
 
 	<blockquote>
@@ -16,13 +18,19 @@
 		</thead>
 		<tbody>
 			<% @eventos.each do |e| %>
-				<tr>
+				<tr class="<%= 'duplicado' if e.duplicado %>">
 					<td><%= e.nombre_evento %></td>
 					<td><%= e.lugar %></td>
 					<td><%= e.artista %></td>
 					<td nowrap><%= e.fecha %></td>
 					<td><%= e.horario.strftime("%H:%M") %></td>
-					<td><%= link_to t('borrar'), "#{importaciones_path}/#{e.id}", confirm: t('confirmacion_borrado'), method: :delete %></td>
+					<td nowrap>
+						<% unless e.duplicado %>
+							<%= link_to t('borrar'), "#{importaciones_path}/#{e.id}", confirm: t('confirmacion_borrado'), method: :delete %>
+						<% else %>
+							<strong>DUPLICADO EN BASE</strong>
+						<% end %>
+					</td>
 				</tr>
 			<% end %>
 		</tbody>
