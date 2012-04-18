@@ -22,6 +22,8 @@
 
 class DatoImportado < ActiveRecord::Base
   
-  
+  def existe_en_base?
+    DatoImportado.where(:fecha => fecha, :horario => horario, :artista => artista, :lugar => lugar, :importado => true).exists?
+  end
   
 end

@@ -108,7 +108,7 @@ class ImportacionesController < AdminController
   def eventos
     marcar_duplicados_base
     
-    @eventos = DatoImportado.where(:importado => false)
+    @eventos = DatoImportado.where(:importado => false).order('nombre_evento, lugar, artista, fecha, horario')
     
     render 'eventos'
   end
@@ -150,8 +150,9 @@ class ImportacionesController < AdminController
         lugar = Lugar.find_by_nombre(d.lugar)
       end
       
+      # Chequear que no se haya insertado ya en este lote de importación
       # Y, por ultimo, el evento - SI Y SÓLO SI NO ESTÁ DUPLICADO
-      unless d.duplicado
+      unless d.existe_en_base?
         evento = Evento.new
         evento.artista = artista
         evento.lugar = lugar
@@ -160,6 +161,8 @@ class ImportacionesController < AdminController
         evento.nombre = d.nombre_evento
         evento.fecha_importado = Date.today      
         evento.save!
+      else
+        d.duplicado = true
       end
       	  
       # ¡Y marcar el dato como importado!
