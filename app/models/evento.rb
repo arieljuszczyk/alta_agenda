@@ -17,6 +17,6 @@ class Evento < ActiveRecord::Base
   belongs_to :artista
   belongs_to :lugar
   
-  validates :artista_id, :lugar_id, :fecha, :hora, :presence => { :message => "es un campo requerido. Por favor completar." }
+  validates :artista_id, :lugar_id, :fecha, :presence => { :message => "es un campo requerido. Por favor completar." }
 
 end

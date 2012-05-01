@@ -59,7 +59,7 @@
 						<% end %>
 					</td>
 					<td nowrap><%= e.fecha.strftime("%d-%b-%Y") %></td>
-					<td><%= e.hora.strftime("%H:%M") %></td>
+					<td><%= e.hora.strftime("%H:%M") unless e.hora.nil? %></td>
 				</tr>
 			<% end unless @ultimos.nil? %>
 		</tbody>

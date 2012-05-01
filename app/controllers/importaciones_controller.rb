@@ -18,7 +18,11 @@ class ImportacionesController < AdminController
           dato.nombre_evento = campos[0]
           dato.artista = campos[1]
           dato.fecha = campos[2]
-          dato.horario = campos[3].gsub('.', ':')
+          
+          # No insertar las líneas que en el horario tienen 'NOT FOUND'
+          horario = campos[3].gsub('.', ':')           
+          dato.horario = horario unless horario == 'NOT FOUND'
+           
           dato.lugar = campos[4]
           dato.direccion1 = campos[5]
           dato.barrio1 = campos[6]
@@ -157,7 +161,7 @@ class ImportacionesController < AdminController
         evento.artista = artista
         evento.lugar = lugar
         evento.fecha = d.fecha
-        evento.hora = d.horario
+        evento.hora = d.horario unless d.horario.nil?
         evento.nombre = d.nombre_evento
         evento.fecha_importado = Date.today      
         evento.save!

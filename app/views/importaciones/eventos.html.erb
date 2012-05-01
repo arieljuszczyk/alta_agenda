@@ -23,7 +23,7 @@
 					<td><%= e.lugar %></td>
 					<td><%= e.artista %></td>
 					<td nowrap><%= e.fecha %></td>
-					<td><%= e.horario.strftime("%H:%M") %></td>
+					<td><%= e.horario.strftime("%H:%M") unless e.horario.nil? %></td>
 					<td nowrap>
 						<% unless e.duplicado %>
 							<%= link_to t('borrar'), "#{importaciones_path}/#{e.id}", confirm: t('confirmacion_borrado'), method: :delete %>
