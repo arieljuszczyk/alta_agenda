@@ -16,8 +16,8 @@
 </p>
 
 <p>
-  <b><%= t 'zona' %>:</b>
-  <%= @lugar.zona %>
+  <b><%= t 'barrio' %>:</b>
+  <%= @lugar.barrio %>
 </p>
 
 <p>
@@ -30,5 +30,7 @@
   <%= @lugar.telefono %>
 </p>
 
-<%= link_to t('editar'), edit_lugar_path(@lugar) %> |
-<%= link_to t('volver'), lugares_path %>
+	<div class="form-actions">
+		<%= link_to t('editar').capitalize, edit_lugar_path(@lugar), :class => 'btn' %>
+		<%= link_to t('volver').capitalize, lugares_path, :class => 'btn' %>
+	</div>

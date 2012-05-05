@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -30,6 +31,7 @@
   <%= @usuario.salt %>
 </p>
 
-
-<%= link_to 'Edit', edit_usuario_path(@usuario) %> |
-<%= link_to 'Back', usuarios_path %>
+	<div class="form-actions">
+		<%= link_to 'Editar', edit_usuario_path(@usuario), :class => 'btn' %>
+		<%= link_to 'Volver', usuarios_path, :class => 'btn' %>
+	</div>

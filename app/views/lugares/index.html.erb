@@ -1,11 +1,7 @@
 
-	<h1><%=t 'titulo.lugares' %></h1>
+	<legend><%=t 'titulo.lugares' %></legend>
 
-	<div id="colour" class="text-right">
-		<%= link_agregar new_lugar_path, t('nuevo_lugar') %>
-	</div>
-
-	<table>
+	<table class="table table-bordered table-striped">
 		<thead>
 			<th><%= t :nombre %></th>
 			<th><%= t :direccion %></th>			
@@ -18,8 +14,12 @@
 			    <td><%= lugar.direccion %></td>			    
 			    <td><%= link_to t('ver'), lugar %></td>
 			    <td><%= link_to t('editar'), edit_lugar_path(lugar) %></td>
-			    <td><%= link_to t('borrar'), lugar, confirm: t('confirmacion_borrado'), method: :delete %></td>
+			    <td><%= link_to t('borrar'), lugar, confirm: t('conf_borrado_cascada'), method: :delete %></td>
 			  </tr>
 			<% end %>
 		</tbody>
 	</table>
+	
+	<div class="form-actions">
+		<%= link_agregar new_lugar_path, t('nuevo_lugar') %>
+	</div>

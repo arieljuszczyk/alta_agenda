@@ -17,7 +17,13 @@
 #  updated_at    :datetime        not null
 #  importado     :boolean
 #  nombre_evento :string(255)
+#  duplicado     :boolean
 #
 
 class DatoImportado < ActiveRecord::Base
+  
+  def existe_en_base?
+    DatoImportado.where(:fecha => fecha, :horario => horario, :artista => artista, :lugar => lugar, :importado => true).exists?
+  end
+  
 end

@@ -36,7 +36,7 @@
     <td><%= evento.artista.nombre unless evento.artista.nil? %></td>
     <td><%= evento.lugar.nombre unless evento.lugar.nil? %></td>
     <td><%= evento.fecha.to_date.to_formatted_s(:short) unless evento.fecha.nil? %></td>
-    <td><%= evento.hora unless evento.hora.nil? %></td>
+    <td><%= evento.hora.strftime("%H:%M") unless evento.hora.nil? %></td>
   </tr>
 <% end %>
 </table>

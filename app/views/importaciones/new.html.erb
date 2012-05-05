@@ -1,36 +1,38 @@
-<h1><%= t 'titulo.importar' %></h1>
 
-<br/>
-
-<%= form_tag('/importaciones', :multipart => true, 'accept-charset' => "ISO-8859-1") do %>
-	<fieldset>
-		<legend><%= t 'titulo.nueva_importacion' %></legend>
-
-       	<blockquote>
-          <p><%= t 'mensajes.tip_carga_archivo_import' %></p>
-        </blockquote>
-
-		<div class="field">
-			<label for="archivo"><%= t 'archivo_impo' %></label>
-			<%= file_field_tag 'archivo' %>
+	<div class="row">
+		<div class="span5">
+			
+			<legend><%= t 'titulo.nueva_importacion' %></legend>
+		
+			<%= form_tag('/importaciones', :multipart => true, 'accept-charset' => "ISO-8859-1", :class => 'form-horizontal') do %>
+		       	<blockquote>
+					<small><%= t 'mensajes.tip_carga_archivo_import' %></small>
+		        </blockquote>
+		
+				<div class="control-group">
+					<label for="archivo" class="control-label"><%= t 'archivo_impo' %></label>
+					<div class="controls"><%= file_field_tag 'archivo' %></div>
+				</div>
+				<div class="form-actions">
+					<%= submit_tag t('procesar'), :class => 'btn btn-primary' %>
+				</div>  
+			<% end %>
+			
 		</div>
-		<br/>
-		<div class="actions">
-			<%= submit_tag t('procesar') %>
-		</div>  
-	</fieldset>
-<% end %>
-
-	<h1><%= t 'titulo.tareas_importacion' %></h1>
-
-	<div id="colour" class="text-right">
-		<span class="blue"><a href="<%= importaciones_path + '/borrar_importados' %>"><%= t 'borrar_importados' %></a></span>
-		<span class="blue"><a href="<%= importaciones_path + '/borrar_todos' %>"><%= t 'borrar_todos' %></a></span>
+		<div class="span4">
+			
+			<legend><%= t 'titulo.tareas_importacion' %></legend>
+		
+			<a class="btn btn-primary" href="<%= importaciones_path + '/borrar_importados' %>"><%= t 'borrar_importados' %></a><br /><br />
+			<a class="btn btn-primary" href="<%= importaciones_path + '/borrar_todos' %>"><%= t 'borrar_todos' %></a>
+		</div>		
 	</div>
+	
 
-	<h1><%= t 'titulo.ultimos_importados' %></h1>
 
-<table>
+	<legend><%= t 'titulo.ultimos_importados' %></legend>
+
+	<table class="table table-bordered table-striped">
 		<thead>
 			<th><%= t 'nombre' %></th>
 			<th><%= t 'lugar' %></th>
@@ -42,11 +44,23 @@
 			<% @ultimos.each do |e| %>
 				<tr>
 					<td><%= e.nombre %></td>
-					<td><%= link_to e.lugar.nombre, lugar_path(e.lugar) %></td>
-					<td><%= link_to e.artista.nombre, artista_path(e.artista) %></td>
+					<td>
+						<% unless e.lugar.nil? %>
+							<%= link_to e.lugar.nombre, lugar_path(e.lugar) %>
+						<% else %>
+							-
+						<% end %>
+					</td>
+					<td>
+						<% unless e.artista.nil? %>
+							<%= link_to e.artista.nombre, artista_path(e.artista) %>
+						<% else %>
+							-
+						<% end %>
+					</td>
 					<td nowrap><%= e.fecha.strftime("%d-%b-%Y") %></td>
-					<td><%= e.hora.strftime("%H:%M") %></td>
+					<td><%= e.hora.strftime("%H:%M") unless e.hora.nil? %></td>
 				</tr>
 			<% end unless @ultimos.nil? %>
 		</tbody>
-</table>
+	</table>

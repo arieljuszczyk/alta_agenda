@@ -1,36 +1,35 @@
-<%= form_for(@evento) do |f| %>
-  <% if @evento.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@evento.errors.count, "error") %> prohibited this evento from being saved:</h2>
 
-      <ul>
-      <% @evento.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+	<%= form_for(@evento, :html => {:class => 'form-horizontal'}) do |f| %>
+  		<% if @evento.errors.any? %>
+    		<div id="error_explanation">
+      			<h2><%= pluralize(@evento.errors.count, "error") %> prohibited this evento from being saved:</h2>
+      			<ul>
+      				<% @evento.errors.full_messages.each do |msg| %>
+        				<li><%= msg %></li>
+      				<% end %>
+      			</ul>
+    		</div>
+  		<% end %>
   
-  <div style="width: 50%; margin-bottom: 20px;">
-	  <div class="field">
-		<%= f.label :artista %>
-		<%= collection_select(:evento, :artista_id, Artista.all, :id, :nombre, :prompt => true )%>
-	  </div>
-	  <div class="field">
-		<%= f.label :lugar %>
-		<%= collection_select(:evento, :lugar_id, Lugar.all, :id, :nombre, :prompt => true )%>
-	  </div>        
-	  <div class="field">
-		<%= f.label :fecha %>           
-		<%= f.text_field :fecha %>   
-	  </div>
-	  <div class="field">
-		<%= f.label :hora %>           
-		<%= f.text_field :hora %>   
-	  </div>
-	</div>
+		<div class="control-group">
+			<%= f.label :artista, :class => 'control-label' %>
+			<div class="controls"><%= collection_select(:evento, :artista_id, Artista.all, :id, :nombre, :prompt => true )%></div>
+		</div>
+		<div class="control-group">
+			<%= f.label :lugar, :class => 'control-label' %>
+			<div class="controls"><%= collection_select(:evento, :lugar_id, Lugar.all, :id, :nombre, :prompt => true )%></div>
+		</div>
+		<div class="control-group">
+			<%= f.label :fecha, :class => 'control-label' %>           
+			<div class="controls"><%= f.text_field :fecha %></div>
+		</div>
+		<div class="control-group">
+			<%= f.label :hora, :class => 'control-label' %>           
+			<div class="controls"><%= f.text_field :hora %></div>
+		</div>
   
-    <div class="actions">
-    <%= f.submit :value => t('grabar'), :class => 'inputButton' %>
-  </div>
-<% end %>
+		<div class="form-actions">
+    		<%= f.submit :value => t('grabar').capitalize, :class => 'btn btn-primary' %>
+    		<%= link_to t('volver').capitalize, eventos_path, :class => 'btn' %>
+  		</div>
+	<% end %>

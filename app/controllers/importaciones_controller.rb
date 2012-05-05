@@ -18,7 +18,11 @@ class ImportacionesController < AdminController
           dato.nombre_evento = campos[0]
           dato.artista = campos[1]
           dato.fecha = campos[2]
-          dato.horario = campos[3].gsub('.', ':')
+          
+          # No insertar las líneas que en el horario tienen 'NOT FOUND'
+          horario = campos[3].gsub('.', ':')           
+          dato.horario = horario unless horario == 'NOT FOUND'
+           
           dato.lugar = campos[4]
           dato.direccion1 = campos[5]
           dato.barrio1 = campos[6]
@@ -82,15 +86,35 @@ class ImportacionesController < AdminController
   	  render 'lugares'
   end
   
+  def corregir_barrio
+	barrio = Barrio.find(params[:id_barrio])
+	nombre_incorrecto = params[:nombre_barrio]
+	
+	DatoImportado.update_all "barrio1 = '#{barrio.nombre}'", "barrio1 = '#{nombre_incorrecto}' and importado = 'f'"
+	
+	cargar_datos_barrios
+	
+	render 'barrios'
+  end
+  
   def lugares
   	  cargar_datos_lugares
 
   	  render 'lugares'	  
   end
   
+  def barrios
+	cargar_datos_barrios
+	
+	render 'barrios'
+  end
+  
   def eventos
-  	  @eventos = DatoImportado.where(:importado => false)
-  	  render 'eventos'
+    marcar_duplicados_base
+    
+    @eventos = DatoImportado.where(:importado => false).order('nombre_evento, lugar, artista, fecha, horario')
+    
+    render 'eventos'
   end
   
   def importar
@@ -107,39 +131,81 @@ class ImportacionesController < AdminController
         artista = Artista.find_by_nombre(d.artista)
       end
       
+	  # Si hace falta, insertar un nuevo barrio
+	  unless Barrio.exists?(:nombre => d.barrio1)
+		barrio = Barrio.new
+		barrio.nombre = d.barrio1
+		barrio.save
+	  else
+		barrio = Barrio.find_by_nombre(d.barrio1)
+	  end
+	  
       # Si hace falta, insertar un nuevo lugar
       unless Lugar.exists?(:nombre => d.lugar)
         lugar = Lugar.new
     		lugar.nombre = d.lugar
     		lugar.direccion = d.direccion1
     		lugar.url = d.web1
-    		lugar.barrio = d.barrio1
     		lugar.mail = d.mail1
     		lugar.telefono = d.telefono1
+			lugar.barrio = barrio
     		lugar.save
       else
         lugar = Lugar.find_by_nombre(d.lugar)
       end
       
-      # Y, por ultimo, el evento
-      evento = Evento.new
-      evento.artista = artista
-      evento.lugar = lugar
-      evento.fecha = d.fecha
-      evento.hora = d.horario
-      evento.nombre = d.nombre_evento
-      evento.fecha_importado = Date.today      
-      evento.save!
-	  
+      # Chequear que no se haya insertado ya en este lote de importación
+      # Y, por ultimo, el evento - SI Y SÓLO SI NO ESTÁ DUPLICADO
+      unless d.existe_en_base?
+        evento = Evento.new
+        evento.artista = artista
+        evento.lugar = lugar
+        evento.fecha = d.fecha
+        evento.hora = d.horario unless d.horario.nil?
+        evento.nombre = d.nombre_evento
+        evento.fecha_importado = Date.today      
+        evento.save!
+      else
+        d.duplicado = true
+      end
+      	  
       # ¡Y marcar el dato como importado!
 	    d.importado = true
-	    d.save
+	    d.save!
     end
     
     redirect_to new_importacion_path 
   end
   
 private
+  def marcar_duplicados_base
+    where = " 
+      exists ( select 1 from eventos, artistas a, lugares l  
+      where fecha = datos_importados.fecha and hora = datos_importados.horario and artista_id = a.id 
+      and a.nombre = artista and lugar_id = l.id and l.nombre = lugar) 
+      and importado = 'f'
+    "
+    
+    DatoImportado.update_all "duplicado = 't'", where 
+  end
+
+	def cargar_datos_barrios
+		barrios = DatoImportado.order(:barrio1).where(:importado => false)
+		
+		@barrios = Barrio.all
+		
+		@existentes = Array.new
+		@nuevos = Array.new
+		
+		barrios.each do |b|
+			if Barrio.exists?(:nombre => b.barrio1)
+				@existentes << b.barrio1 unless @existentes.include?(b.barrio1)			
+			else
+				@nuevos << b.barrio1 unless @nuevos.include?(b.barrio1)
+			end
+		end
+	end
+
 	def cargar_datos_lugares
 		lugares = DatoImportado.order(:lugar).where(:importado => false)
 		

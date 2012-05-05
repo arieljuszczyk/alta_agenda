@@ -1,20 +1,22 @@
 
-	<div id="links">
-		<!-- **** INSERT LINKS HERE **** -->
-		<a href="#">another link</a> | <a href="#">another link</a> | <a href="#">another link</a> | <a href="#">another link</a>
-	</div>
-	
-	<div id="logo">
-		<h1>alta_agenda</h1>
-		<h2>&quot;as queer as a clockwork orange&quot;</h2>
-	</div>
-	
-	<div id="menu">
-		<ul>
-    	<%= item_menu 'usuarios', usuarios_path %>
-    	<%= item_menu 'lugares', lugares_path %>
-    	<%= item_menu 'eventos', eventos_path %>
-    	<%= item_menu 'artistas', artistas_path %>
-    	<%= item_menu 'importaciones', new_importacion_path %>
-		</ul>
-	</div>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            		<span class="icon-bar"></span>
+            		<span class="icon-bar"></span>
+            		<span class="icon-bar"></span>
+          		</a>
+          		<a class="brand" href="<%= root_url %>">Alta Agenda</a>
+          		<div class="nav-collapse">
+					<ul class="nav">
+				    	<%= item_menu 'usuarios', usuarios_path %>
+				    	<%= item_menu 'lugares', lugares_path %>
+				    	<%= item_menu 'eventos', eventos_path %>
+				    	<%= item_menu 'artistas', artistas_path %>
+				    	<%= item_menu 'importaciones', new_importacion_path %>
+					</ul>
+          		</div><!--/.nav-collapse -->
+        	</div>
+      	</div>
+    </div>

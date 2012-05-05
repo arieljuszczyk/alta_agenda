@@ -1,11 +1,7 @@
 
-	<h1><%= t 'titulo.artistas' %></h1>
+	<legend><%= t 'titulo.artistas' %></legend>
 
-	<div id="colour" class="text-right">
-		<%= link_agregar new_artista_path, t('nuevo_artista') %>
-	</div>
-
-	<table>
+	<table class="table table-bordered table-striped">
 		<thead>
 		    <th><%= t 'nombre' %></th>
 		    <th><%= t 'url' %></th>
@@ -18,8 +14,12 @@
 			    <td><%= artista.url %></td>
 			    <td><%= link_to t('ver'), artista %></td>
 			    <td><%= link_to t('editar'), edit_artista_path(artista) %></td>
-			    <td><%= link_to t('borrar'), artista, confirm: t('confirmacion_borrado'), method: :delete %></td>
+			    <td><%= link_to t('borrar'), artista, confirm: t('conf_borrado_cascada'), method: :delete %></td>
 			  </tr>
 			<% end %>
 		</tbody>
 	</table>
+	
+	<div class="form-actions">
+		<%= link_agregar new_artista_path, t('nuevo_artista') %>
+	</div>

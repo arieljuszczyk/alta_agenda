@@ -1,15 +1,13 @@
 
-	<h1><%= t 'titulo.sincronizacion.eventos' %></h1>
+	<%= stylesheet_link_tag    "importaciones", :media => "all" %>
+	
+	<legend><%= t 'titulo.sincronizacion.eventos' %></legend>
 
 	<blockquote>
-		<p><%= t 'mensajes.sincro_eventos' %></p>
+		<small><%= t 'mensajes.sincro_eventos' %></small>
 	</blockquote>
-
-	<div id="colour" class="text-right">
-		<span class="blue"><a href="<%= importaciones_path + '/importar' %>"><%= t 'importar' %></a></span>
-	</div>
 	
-	<table>
+	<table class="table table-bordered table-condensed table-striped">
 		<thead>
 			<th><%= t 'nombre' %></th>
 			<th><%= t 'lugar' %></th>
@@ -20,14 +18,24 @@
 		</thead>
 		<tbody>
 			<% @eventos.each do |e| %>
-				<tr>
+				<tr class="<%= 'duplicado' if e.duplicado %>">
 					<td><%= e.nombre_evento %></td>
 					<td><%= e.lugar %></td>
 					<td><%= e.artista %></td>
 					<td nowrap><%= e.fecha %></td>
-					<td><%= e.horario.strftime("%H:%M") %></td>
-					<td><%= link_to t('borrar'), "#{importaciones_path}/#{e.id}", confirm: t('confirmacion_borrado'), method: :delete %></td>
+					<td><%= e.horario.strftime("%H:%M") unless e.horario.nil? %></td>
+					<td nowrap>
+						<% unless e.duplicado %>
+							<%= link_to t('borrar'), "#{importaciones_path}/#{e.id}", confirm: t('confirmacion_borrado'), method: :delete %>
+						<% else %>
+							<strong>DUPLICADO EN BASE</strong>
+						<% end %>
+					</td>
 				</tr>
 			<% end %>
 		</tbody>
 	</table>
+	
+	<div class="form-actions">
+		<a class="btn btn-primary" href="<%= importaciones_path + '/importar' %>"><%= t('importar').upcase %></a>
+	</div>

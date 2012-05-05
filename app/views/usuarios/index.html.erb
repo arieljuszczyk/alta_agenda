@@ -1,11 +1,7 @@
 
-	<h1><%= t 'titulo.usuarios' %></h1>
+	<legend><%= t 'titulo.usuarios' %></legend>
 
-	<div id="colour" class="text-right">
-		<%= link_agregar new_usuario_path, t('nuevo_usuario') %>
-	</div>
-
-	<table>
+	<table class="table table-striped table-bordered">
 		<thead>
 		    <th><%= t 'apellido' %></th>
 		    <th><%= t 'nombre' %></th>
@@ -27,3 +23,7 @@
 		<% end %>
 		</tbody>
 	</table>
+	
+	<div class="form-actions">
+		<%= link_agregar new_usuario_path, t('nuevo_usuario') %>
+	</div>

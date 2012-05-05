@@ -8,9 +8,9 @@
 #  url        :string(255)
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
-#  barrio     :string(255)
 #  mail       :string(255)
 #  telefono   :string(255)
+#  barrio_id  :integer
 #
 
 require 'test_helper'
