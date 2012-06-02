@@ -29,11 +29,17 @@
 		<div class="container">	
 			<div class="row">
 				<div class="span9">
-      				<% if flash[:notice] %>
-      					<div id="flash">
-							<p class="notice"><%= flash[:notice] %></p>
-      					</div>
-    				<% end %>
+					<div class="offset3">
+	      				<% if flash[:notice] %>
+							<span class="label"><%= flash[:notice] %></span>
+	    				<% end %>
+					    <% if flash[:warn] %>
+				    		<span class="label label-warning"><%= flash[:warn] %></span>
+	    				<% end %>
+					    <% if flash[:error] %>
+				    		<span class="label label-important"><%= flash[:error] %></span>
+	    				<% end %>
+					</div>
     				
       				<%= yield %>
 				</div>

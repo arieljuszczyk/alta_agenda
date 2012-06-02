@@ -1,6 +1,12 @@
 
 	<legend><%= t 'titulo.eventos' %></legend>
 
+	<%= form_tag(eventos_path, method: :delete, class: 'form-horizontal well') do %>
+		<%= submit_tag 'Eliminar', class: 'btn btn-primary' %>
+		eventos anteriores a
+		<%= select_date(Date.today, {prefix: :fecha}, {class: 'span1'}) %>
+	<% end %>
+
 	<table class="table table-bordered table-striped">
 		<thead>
 		    <th><%= t 'artista' %></th>

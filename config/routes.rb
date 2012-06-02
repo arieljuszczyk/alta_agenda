@@ -11,6 +11,7 @@ AltaAgenda::Application.routes.draw do
   resources :usuarios
 
   resources :eventos
+  delete '/eventos', to: 'eventos#destroy'
 
   resources :artistas
 

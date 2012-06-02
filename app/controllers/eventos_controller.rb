@@ -1,4 +1,4 @@
-class EventosController < AdminController
+﻿class EventosController < AdminController
   # GET /eventos
   # GET /eventos.json
   def index
@@ -72,8 +72,18 @@ class EventosController < AdminController
   # DELETE /eventos/1
   # DELETE /eventos/1.json
   def destroy
-    @evento = Evento.find(params[:id])
-    @evento.destroy
+    if params[:id]
+      @evento = Evento.find(params[:id])
+      @evento.destroy
+    elsif params[:fecha]
+      if Evento.delete_all("fecha < '#{Date.civil(params[:fecha][:year].to_i, params[:fecha][:month].to_i, params[:fecha][:day].to_i)}'") > 0
+        flash[:notice] = 'Se han borrado los eventos con éxito'
+      else
+        flash[:warn] = 'No se ha borrado ningún evento'
+      end
+    else
+      flash[:error] = 'No hay nada que borrar...'
+    end
 
     respond_to do |format|
       format.html { redirect_to eventos_url }
