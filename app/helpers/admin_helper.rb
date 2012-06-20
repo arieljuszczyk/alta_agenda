@@ -10,7 +10,7 @@ module AdminHelper
   end
   
   def titulo
-    @titulo || 'Alta Agenda'
+    @titulo || 'Emooga'
   end
   
 end
