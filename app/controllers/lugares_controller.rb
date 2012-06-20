@@ -3,7 +3,7 @@ class LugaresController < AdminController
   # GET /lugares.json
   def index
     @titulo = 'Listado de lugares'
-    @lugares = Lugar.all
+    @lugares = Lugar.order('lugares.nombre ASC')
 
     respond_to do |format|
       format.html # index.html.erb

@@ -2,7 +2,7 @@ class ArtistasController < AdminController
   # GET /artistas
   # GET /artistas.json
   def index
-    @artistas = Artista.all
+    @artistas = Artista.order('artistas.nombre ASC')
 
     respond_to do |format|
       format.html # index.html.erb

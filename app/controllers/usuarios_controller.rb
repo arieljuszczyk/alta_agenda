@@ -2,7 +2,7 @@ class UsuariosController < AdminController
   # GET /usuarios
   # GET /usuarios.json
   def index
-    @usuarios = Usuario.all
+    @usuarios = Usuario.order('usuarios.nombre ASC')
 
     respond_to do |format|
       format.html # index.html.erb

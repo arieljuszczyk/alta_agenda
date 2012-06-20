@@ -2,7 +2,7 @@ class ZonasController < ApplicationController
   # GET /zonas
   # GET /zonas.json
   def index
-    @zonas = Zona.all
+    @zonas = Zona.order('zonas.nombre ASC')
 
     respond_to do |format|
       format.html # index.html.erb
