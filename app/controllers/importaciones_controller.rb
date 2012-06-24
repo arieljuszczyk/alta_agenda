@@ -192,7 +192,7 @@ private
 	def cargar_datos_barrios
 		barrios = DatoImportado.order(:barrio1).where(:importado => false)
 		
-		@barrios = Barrio.all
+		@barrios = Barrio.order('barrios.nombre ASC')
 		
 		@existentes = Array.new
 		@nuevos = Array.new
@@ -209,7 +209,7 @@ private
 	def cargar_datos_lugares
 		lugares = DatoImportado.order(:lugar).where(:importado => false)
 		
-		@lugares = Lugar.all
+		@lugares = Lugar.order('lugares.nombre ASC')
 		
 		@existentes = Array.new
 		@nuevos = Array.new
@@ -226,7 +226,7 @@ private
 	def cargar_datos_artistas
 		artistas = DatoImportado.order(:artista).where(:importado => false)
 		
-		@artistas = Artista.all
+		@artistas = Artista.order('artistas.nombre ASC')
 		
 		@existentes = Array.new
 		@nuevos = Array.new
