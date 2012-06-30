@@ -8,7 +8,7 @@ class HomeController < ApplicationController
   # GET /eventos.json
   def index
     
-   @eventos = Evento.all(:order => 'fecha ASC')   
+   @eventos = Evento.where(:fecha => Date.today.to_s + " 00:00:00.000000").all(:order => 'fecha ASC')
    @orden = 'fecha ASC'
  
     case params[:id_fecha]
